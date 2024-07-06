@@ -156,17 +156,17 @@ export const routes: Routes = [
         component: ContactoComponent,
       },
       {
-        path: 'testimonios',
+        path: 'servicios',
         canActivate: [AuthGuard],
         component: TestimonioComponent,
       },
       {
-        path: 'testimonios/create',
+        path: 'servicios/create',
         canActivate: [AuthGuard],
         component: CreateTestimonioComponent,
       },
       {
-        path: 'testimonios/edit',
+        path: 'servicios/edit',
         canActivate: [AuthGuard],
         component: EditTestimonioComponent,
       },

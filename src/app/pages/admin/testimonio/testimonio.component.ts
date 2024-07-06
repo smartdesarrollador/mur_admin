@@ -119,7 +119,7 @@ export class TestimonioComponent {
   onEdit(category: Testimonio) {
     console.log(category);
     this.dataService.selectCategory = Object.assign({}, category);
-    this.router.navigate(['/admin/testimonios/edit'], {
+    this.router.navigate(['/admin/servicios/edit'], {
       queryParams: { categoryId: category.id_testimonio },
     });
   }
