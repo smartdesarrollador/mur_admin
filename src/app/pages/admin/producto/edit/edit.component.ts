@@ -58,7 +58,6 @@ export class EditComponent {
       const categoryId = params['categoryId'];
       this.valor_id_producto = categoryId;
     });
-    this.valor_destacado = this.dataService.selectCategory.destacado;
   }
 
   loadCategories() {
@@ -76,17 +75,9 @@ export class EditComponent {
         this.dataService.selectCategory.descripcion,
         Validators.required,
       ],
-      duracion: [this.dataService.selectCategory.duracion, Validators.required],
+      correo: [this.dataService.selectCategory.correo, Validators.required],
+      telefono: [this.dataService.selectCategory.telefono, Validators.required],
       image: [null],
-      /* maestro: [this.dataService.selectCategory.maestro, Validators.required], */
-      observacion: [
-        this.dataService.selectCategory.observacion,
-        Validators.required,
-      ],
-      precio: [this.dataService.selectCategory.precio, Validators.required],
-      destacado: [
-        this.dataService.selectCategory.destacado == 'true' ? true : false,
-      ],
     });
   }
 
@@ -136,22 +127,20 @@ export class EditComponent {
     formData.append('nombre', this.form.value.nombre);
     formData.append('resumen', this.form.value.resumen);
     formData.append('descripcion', this.form.value.descripcion);
-    formData.append('duracion', this.form.value.duracion);
+    formData.append('correo', this.form.value.correo);
 
     if (this.files_date) {
       formData.append('imagen', this.files_date, this.files_date.name);
     }
-    formData.append('maestro', this.form.value.maestro);
-    formData.append('observacion', this.form.value.observacion);
-    formData.append('precio', this.form.value.precio);
-    formData.append('destacado', this.form.value.destacado);
+
+    formData.append('telefono', this.form.value.telefono);
     formData.append('categoria_producto_id', this.categoriaProductoId);
 
     this.dataService.updateData(formData).subscribe((res) => {
       this.data = res;
       console.log(this.data);
       this.alerta();
-      this.router.navigate(['/admin/cursos']);
+      this.router.navigate(['/admin/equipo']);
     });
   }
 

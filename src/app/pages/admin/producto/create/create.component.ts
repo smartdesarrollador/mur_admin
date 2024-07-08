@@ -57,12 +57,9 @@ export class CreateComponent {
       nombre: [null, Validators.required],
       resumen: [null, Validators.required],
       descripcion: [null, Validators.required],
-      duracion: [null, Validators.required],
+      correo: [null, Validators.required],
+      telefono: [null, Validators.required],
       image: [null, Validators.required],
-      /* maestro: [null, Validators.required], */
-      observacion: [null, Validators.required],
-      precio: [null, Validators.required],
-      destacado: [false],
       /* categoria_producto_id: [null, Validators.required], */
     });
   }
@@ -112,12 +109,9 @@ export class CreateComponent {
     formData.append('nombre', this.form.value.nombre);
     formData.append('resumen', this.form.value.resumen);
     formData.append('descripcion', this.form.value.descripcion);
-    formData.append('duracion', this.form.value.duracion);
+    formData.append('correo', this.form.value.correo);
+    formData.append('telefono', this.form.value.telefono);
     formData.append('imagen', this.files_date, this.files_date.name);
-    /* formData.append('maestro', this.form.value.maestro); */
-    formData.append('observacion', this.form.value.observacion);
-    formData.append('precio', this.form.value.precio);
-    formData.append('destacado', this.form.value.destacado);
     formData.append('categoria_producto_id', this.categoriaProductoId);
     this.dataService.uploadData(formData).subscribe((res) => {
       this.data = res;

@@ -60,17 +60,6 @@ export class ProductoComponent {
     return this.form.controls;
   }
 
-  /* uploadImage(event: Event) {
-    if (event.target instanceof HTMLInputElement) {
-      if (event.target.files && event.target.files.length > 0) {
-        this.files = event.target.files[0];
-        console.log(this.files);
-      } else {
-        console.log('no se selecciono ningun archivo');
-      }
-    }
-  } */
-
   uploadImage(event: Event) {
     if (event.target instanceof HTMLInputElement) {
       if (event.target.files && event.target.files.length > 0) {
@@ -121,7 +110,7 @@ export class ProductoComponent {
   onEdit(category: Producto) {
     console.log(category);
     this.dataService.selectCategory = Object.assign({}, category);
-    this.router.navigate(['/admin/cursos/edit'], {
+    this.router.navigate(['/admin/equipo/edit'], {
       queryParams: { categoryId: category.id_producto },
     });
   }

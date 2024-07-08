@@ -14,7 +14,7 @@
           <td scope="col" class="px-6 py-3">Nombre</td>
           <td scope="col" class="px-6 py-3">Url</td>
           <td scope="col" class="px-6 py-3">Editar</td>
-          <td scope="col" class="px-6 py-3">Eliminar</td>
+          <!-- <td scope="col" class="px-6 py-3">Eliminar</td> -->
         </tr>
       </thead>
       <tbody class="divide-y divide-gray-200">
@@ -34,19 +34,19 @@
               <i class="fas fa-edit"></i>
             </button>
           </td>
-          <td>
+          <!--  <td>
             <button
               (click)="onDelete(item.id_medios)"
               class="inline-flex items-center justify-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 focus:outline-none focus:border-red-700 focus:ring focus:ring-red-200 active:bg-red-600 disabled:opacity-25 transition"
             >
               <i class="fas fa-trash"></i>
             </button>
-          </td>
+          </td> -->
         </tr>
       </tbody>
     </table>
   </div>
-  <form (ngSubmit)="onSubmit()" [formGroup]="form" class="my-10">
+  <!-- <form (ngSubmit)="onSubmit()" [formGroup]="form" class="my-10">
     <p class="text-xs text-gray-400">
       Dimensiones recomendadas: 1200px por 400px.
     </p>
@@ -68,5 +68,5 @@
       </div>
     </div>
     <button type="submit" class="boton-azul">Crear Nuevo</button>
-  </form>
+  </form> -->
 </div>

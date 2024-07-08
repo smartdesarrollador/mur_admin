@@ -1,25 +1,44 @@
-<div class="container">
-  <div class="flex justify-center shadow overflow-hidden sm:rounded-lg">
-    <table class="bg-slate-50 w-[60%] divide-y divide-gray-200 table-auto">
-      <thead class="rounded-t-lg bg-blue-500 text-white">
-        <tr class="text-left text-xs font-bold uppercase">
-          <td scope="col" class="px-6 py-3">Nombre</td>
-          <td scope="col" class="px-6 py-3">Correo</td>
-          <td scope="col" class="px-6 py-3">Telefono</td>
-          <td scope="col" class="px-6 py-3">Asunto</td>
-        </tr>
-      </thead>
-      <tbody class="divide-y divide-gray-200">
-        <tr
-          *ngFor="let item of listContactos"
-          class="text-sm font-medium text-gray-900"
-        >
-          <td class="px-6 py-4">{{ item.nombre }}</td>
-          <td class="px-6 py-4">{{ item.correo }}</td>
-          <td class="px-6 py-4">{{ item.telefono }}</td>
-          <td class="px-6 py-4">{{ item.asunto }}</td>
-        </tr>
-      </tbody>
-    </table>
+<div class="container mx-auto px-4">
+  <header>
+    <h3 class="text-black text-xl font-black p-4 text-center">
+      Mensajes - Formulario
+    </h3>
+  </header>
+  <div class="flex justify-center overflow-hidden">
+    <div class="w-full md:w-[60%] rounded-lg overflow-hidden shadow-lg">
+      <div class="bg-black rounded-t-lg">
+        <div class="overflow-x-auto">
+          <table class="w-full table-auto">
+            <thead class="text-white">
+              <tr class="text-left text-xs font-bold uppercase">
+                <th scope="col" class="px-6 py-3 whitespace-nowrap">Nombre</th>
+                <th scope="col" class="px-6 py-3 whitespace-nowrap">Correo</th>
+                <th scope="col" class="px-6 py-3 whitespace-nowrap">
+                  Teléfono
+                </th>
+                <th scope="col" class="px-6 py-3 whitespace-nowrap">Asunto</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+      <div class="bg-slate-50">
+        <div class="overflow-x-auto">
+          <table class="w-full divide-y divide-gray-200 table-auto">
+            <tbody class="divide-y divide-gray-200">
+              <tr
+                *ngFor="let item of listContactos"
+                class="text-sm font-medium text-gray-900"
+              >
+                <td class="px-6 py-4 whitespace-nowrap">{{ item.nombre }}</td>
+                <td class="px-6 py-4 whitespace-nowrap">{{ item.correo }}</td>
+                <td class="px-6 py-4 whitespace-nowrap">{{ item.telefono }}</td>
+                <td class="px-6 py-4 whitespace-nowrap">{{ item.asunto }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

@@ -2,7 +2,7 @@
   <div class="max-w-5xl mx-auto sm:px-6 lg:px-8">
     <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg px-4 py-4">
       <!--Tabla lista de items   -->
-      <h2 class="text-center text-xl text-blue-500 font-bold">Editar Curso</h2>
+      <h2 class="text-center text-xl text-blue-500 font-bold">Editar</h2>
       <form
         (ngSubmit)="onSubmit()"
         [formGroup]="form"
@@ -12,7 +12,7 @@
           <label
             for="base-input"
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >Nombre del curso</label
+            >Nombre</label
           >
           <input
             type="text"
@@ -48,25 +48,32 @@
             [editor]="Editor"
             data="<p>Hello, world!</p>"
           ></ckeditor>
-          <!-- <input
-            type="text"
-            id="descripcion"
-            formControlName="descripcion"
-            name="descripcion"
-            class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          /> -->
         </div>
         <div class="mb-5" form-group>
           <label
-            for="duracion"
+            for="correo"
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >Duración</label
+            >Correo</label
           >
           <input
             type="text"
-            id="duracion"
-            formControlName="duracion"
-            name="duracion"
+            id="correo"
+            formControlName="correo"
+            name="correo"
+            class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          />
+        </div>
+        <div class="mb-5" form-group>
+          <label
+            for="base-input"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Telefono</label
+          >
+          <input
+            type="text"
+            id="telefono"
+            formControlName="telefono"
+            name="telefono"
             class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           />
         </div>
@@ -89,88 +96,6 @@
               Seleccionar archivo
             </div>
           </div>
-        </div>
-        <!-- <div class="mb-5" form-group>
-          <label
-            for="base-input"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >Maestro</label
-          >
-          <input
-            type="text"
-            id="maestro"
-            formControlName="maestro"
-            name="maestro"
-            class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          />
-        </div> -->
-        <div class="mb-5" form-group>
-          <label
-            for="base-input"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >Instructor</label
-          >
-          <input
-            type="text"
-            id="observacion"
-            formControlName="observacion"
-            name="observacion"
-            class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          />
-        </div>
-        <div class="mb-5" form-group>
-          <label
-            for="number-input"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >Precio:</label
-          >
-          <input
-            type="number"
-            id="precio"
-            formControlName="precio"
-            name="precio"
-            aria-describedby="helper-text-explanation"
-            class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder=""
-          />
-        </div>
-
-        <div class="mb-5" form-group>
-          @if (valor_destacado == "true") {
-          <div class="flex items-center mb-4">
-            <input
-              formControlName="destacado"
-              id="destacado"
-              name="destacado"
-              type="checkbox"
-              value=""
-              [checked]="true"
-              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-            />
-            <label
-              for="default-checkbox"
-              class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-              >Destacado</label
-            >
-          </div>
-          } @if (valor_destacado == "false") {
-          <div class="flex items-center mb-4">
-            <input
-              formControlName="destacado"
-              id="destacado"
-              name="destacado"
-              type="checkbox"
-              value=""
-              [checked]="false"
-              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-            />
-            <label
-              for="default-checkbox"
-              class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-              >Destacado</label
-            >
-          </div>
-          }
         </div>
 
         <button

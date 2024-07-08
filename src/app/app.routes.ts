@@ -121,17 +121,17 @@ export const routes: Routes = [
         component: UpdateFileCarouselComponent,
       },
       {
-        path: 'cursos',
+        path: 'equipo',
         canActivate: [AuthGuard],
         component: ProductoComponent,
       },
       {
-        path: 'cursos/create',
+        path: 'equipo/create',
         canActivate: [AuthGuard],
         component: CreateComponent,
       },
       {
-        path: 'cursos/edit',
+        path: 'equipo/edit',
         canActivate: [AuthGuard],
         component: EditComponent,
       },

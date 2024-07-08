@@ -3,12 +3,13 @@ export class Producto {
   nombre?: string;
   resumen?: string;
   descripcion?: string;
-  duracion?: string;
+  correo?: string;
+  telefono?: string;
   imagen?: string;
-  ruta_imagen?: string;
-  /* maestro?: string; */
-  observacion?: string;
-  precio?: number;
   destacado?: string;
+  precio?: number;
+  observacion?: string;
+  duracion?: string;
+  ruta_imagen?: string;
   categoria_producto_id?: number;
 }

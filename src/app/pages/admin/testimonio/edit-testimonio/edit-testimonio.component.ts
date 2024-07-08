@@ -131,7 +131,7 @@ export class EditTestimonioComponent {
       this.data = res;
       console.log(this.data);
       this.alerta();
-      this.router.navigate(['/admin/testimonios']);
+      this.router.navigate(['/admin/servicios']);
     });
   }
 

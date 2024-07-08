@@ -1,11 +1,11 @@
 <div class="container">
   <div class="flex justify-center shadow overflow-hidden sm:rounded-lg">
     <table class="bg-slate-50 w-full divide-y divide-gray-200 table-auto">
-      <thead class="rounded-t-lg bg-blue-500 text-white">
+      <thead class="rounded-t-lg bg-black text-white">
         <tr class="text-left text-xs font-bold uppercase">
           <td scope="col" class="px-6 py-3">Nombre</td>
           <td scope="col" class="px-6 py-3">Url</td>
-          <td scope="col" class="px-6 py-3">Destacado</td>
+          <td scope="col" class="px-6 py-3">Correo</td>
           <td scope="col" class="px-6 py-3">Editar</td>
           <td scope="col" class="px-6 py-3">Eliminar</td>
         </tr>
@@ -23,32 +23,7 @@
               alt=""
             />
           </td>
-          <td class="px-6 py-4">
-            <div
-              *ngIf="item.destacado == 'true'"
-              class="flex items-center mb-4"
-            >
-              <input
-                id="default-checkbox"
-                type="checkbox"
-                [checked]="true"
-                value=""
-                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-              />
-            </div>
-            <div
-              *ngIf="item.destacado != 'true'"
-              class="flex items-center mb-4"
-            >
-              <input
-                id="default-checkbox"
-                type="checkbox"
-                [checked]="false"
-                value=""
-                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-              />
-            </div>
-          </td>
+          <td class="px-6 py-4">{{ item.correo }}</td>
           <td class="px-6 py-4">
             <button
               (click)="onEdit(item)"
@@ -71,9 +46,9 @@
   </div>
 
   <a
-    routerLink="/admin/cursos/create"
+    routerLink="/admin/equipo/create"
     class="boton-azul inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
   >
-    Crear Curso
+    Crear Nuevo
   </a>
 </div>
