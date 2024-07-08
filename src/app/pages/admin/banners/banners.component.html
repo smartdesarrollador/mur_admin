@@ -1,20 +1,12 @@
 <div class="container">
-  <header>
-    <h3 class="text-black text-xl font-black p-4 text-center">
-      Administrar Banners
-    </h3>
-  </header>
-
-  <div
-    class="flex justify-center shadow overflow-hidden border-b border-gray-200 sm:rounded-lg"
-  >
-    <table class="bg-slate-50 w-full divide-y divide-gray-200 table-auto">
-      <thead class="bg-black text-white">
+  <div class="flex justify-center shadow overflow-hidden sm:rounded-lg">
+    <table class="bg-slate-50 w-[60%] divide-y divide-gray-200 table-auto">
+      <thead class="rounded-t-lg bg-black text-white">
         <tr class="text-left text-xs font-bold uppercase">
           <td scope="col" class="px-6 py-3">Nombre</td>
           <td scope="col" class="px-6 py-3">Url</td>
           <td scope="col" class="px-6 py-3">Editar</td>
-          <!-- <td scope="col" class="px-6 py-3">Eliminar</td> -->
+          <td scope="col" class="px-6 py-3">Eliminar</td>
         </tr>
       </thead>
       <tbody class="divide-y divide-gray-200">
@@ -22,9 +14,13 @@
           *ngFor="let item of listCategories"
           class="text-sm font-medium text-gray-900"
         >
-          <td class="px-6 py-4">{{ item.nombre }}</td>
+          <td class="px-6 py-4">{{ item.titulo }}</td>
           <td class="px-6 py-4">
-            <img class="max-w-sm" src="{{ urlRaiz + item.url }}" alt="" />
+            <img
+              class="max-w-[30%]"
+              src="{{ urlRaiz + item.ruta_imagen }}"
+              alt=""
+            />
           </td>
           <td class="px-6 py-4">
             <button
@@ -34,39 +30,23 @@
               <i class="fas fa-edit"></i>
             </button>
           </td>
-          <!--  <td>
+          <td>
             <button
-              (click)="onDelete(item.id_medios)"
+              (click)="onDelete(item.id_banner)"
               class="inline-flex items-center justify-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 focus:outline-none focus:border-red-700 focus:ring focus:ring-red-200 active:bg-red-600 disabled:opacity-25 transition"
             >
               <i class="fas fa-trash"></i>
             </button>
-          </td> -->
+          </td>
         </tr>
       </tbody>
     </table>
   </div>
-  <!-- <form (ngSubmit)="onSubmit()" [formGroup]="form" class="my-10">
-    <p class="text-xs text-gray-400">
-      Dimensiones recomendadas: 1200px por 400px.
-    </p>
-    <div class="py-5 form-group">
-      <label for="image">Cargar Banner </label>
-      <input
-        type="file"
-        formControlName="image"
-        name="image"
-        id="image"
-        class="form-control"
-        (change)="uploadImage($event)"
-      />
 
-      <div *ngIf="submitted && f['image'].errors" class="invalid-feedback">
-        <div class="text-red-500" *ngIf="f['image'].errors['required']">
-          Seleccionar archivo
-        </div>
-      </div>
-    </div>
-    <button type="submit" class="boton-azul">Crear Nuevo</button>
-  </form> -->
+  <a
+    routerLink="/admin/banners/create"
+    class="boton-azul inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
+  >
+    Crear banner
+  </a>
 </div>

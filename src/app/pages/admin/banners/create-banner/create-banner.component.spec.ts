@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UpdateFileComponent } from './update-file.component';
+import { CreateBannerComponent } from './create-banner.component';
 
-describe('UpdateFileComponent', () => {
-  let component: UpdateFileComponent;
-  let fixture: ComponentFixture<UpdateFileComponent>;
+describe('CreateBannerComponent', () => {
+  let component: CreateBannerComponent;
+  let fixture: ComponentFixture<CreateBannerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [UpdateFileComponent]
+      imports: [CreateBannerComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(UpdateFileComponent);
+    fixture = TestBed.createComponent(CreateBannerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,16 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Upload } from 'src/app/models/upload.model';
 import { UploadService } from 'src/app/services/upload.service';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpEvent,
+  HttpRequest,
+  HttpResponse,
+  HttpClientModule,
+} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { Router, ActivatedRoute, RouterLink } from '@angular/router';
 import Swal from 'sweetalert2';
 import { environment } from 'src/environments/environment';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
-  selector: 'app-banners',
+  selector: 'app-edit-banner',
   standalone: true,
   imports: [
     CommonModule,
@@ -18,27 +26,37 @@ import { environment } from 'src/environments/environment';
     ReactiveFormsModule,
     HttpClientModule,
     RouterLink,
+    CKEditorModule,
   ],
-  templateUrl: './banners.component.html',
-  styleUrl: './banners.component.css',
+  templateUrl: './edit-banner.component.html',
+  styleUrl: './edit-banner.component.css',
 })
-export class BannersComponent {
+export class EditBannerComponent {
   listCategories: any = [];
   files_date: any;
   submitted = false;
   data: any;
   form: FormGroup = new FormGroup({});
   urlRaiz = environment.urlRaiz + '/';
+  valor_id_banner: any;
+  categoriaBannerId: any = 1;
+  public Editor = ClassicEditor;
   post = new Upload();
   constructor(
     private formBuilder: FormBuilder,
     private dataService: UploadService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
     this.createForm();
     this.loadCategories();
+
+    this.route.queryParams.subscribe((params) => {
+      const categoryId = params['categoryId'];
+      this.valor_id_banner = categoryId;
+    });
   }
 
   loadCategories() {
@@ -50,7 +68,12 @@ export class BannersComponent {
 
   createForm() {
     this.form = this.formBuilder.group({
-      image: [null, Validators.required],
+      titulo: [this.dataService.selectCategory.titulo, Validators.required],
+      descripcion: [
+        this.dataService.selectCategory.descripcion,
+        Validators.required,
+      ],
+      image: [null],
     });
   }
 
@@ -91,32 +114,24 @@ export class BannersComponent {
 
   onSubmit() {
     this.submitted = true;
-    if (this.form.invalid) {
+    /*  if (this.form.invalid) {
       return;
-    }
+    } */
 
     const formData = new FormData();
-    formData.append('nombre_carousel', this.files_date, this.files_date.name);
+    formData.append('id_banner', this.valor_id_banner);
+    formData.append('titulo', this.form.value.titulo);
+    formData.append('descripcion', this.form.value.descripcion);
 
-    this.dataService.uploadData(formData).subscribe((res) => {
+    if (this.files_date) {
+      formData.append('imagen', this.files_date, this.files_date.name);
+    }
+
+    this.dataService.updateData(formData).subscribe((res) => {
       this.data = res;
       console.log(this.data);
       this.alerta();
-    });
-  }
-
-  onEdit(category: Upload) {
-    console.log(category);
-    this.dataService.selectCategory = Object.assign({}, category);
-    this.router.navigate(['/admin/banners/edit'], {
-      queryParams: { categoryId: category.id_banner },
-    });
-  }
-
-  onDelete(id: number) {
-    this.dataService.deleteCategory(id).subscribe((response) => {
-      this.loadCategories();
-      this.alertaDelete();
+      this.router.navigate(['/admin/banners']);
     });
   }
 
@@ -138,13 +153,6 @@ export class BannersComponent {
     Swal.fire({
       icon: 'error',
       title: 'Solo se permiten archivos JPG y PNG',
-    });
-  }
-
-  alertaDelete() {
-    Swal.fire({
-      icon: 'success',
-      title: 'Registro eliminado',
     });
   }
 }

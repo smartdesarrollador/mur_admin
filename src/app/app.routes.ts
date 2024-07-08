@@ -22,7 +22,9 @@ import { LayoutDosComponent } from './layout/layout-dos/layout-dos.component';
 import { LayoutComponent } from './layout/layout.component';
 import { LayoutTresComponent } from './layout/layout-tres/layout-tres.component';
 import { BannersComponent } from './pages/admin/banners/banners.component';
-import { UpdateFileComponent } from './pages/admin/banners/update-file/update-file.component';
+import { CreateBannerComponent } from './pages/admin/banners/create-banner/create-banner.component';
+import { EditBannerComponent } from './pages/admin/banners/edit-banner/edit-banner.component';
+
 import { MisionComponent } from './pages/admin/mision/mision.component';
 import { UpdateFileMisionComponent } from './pages/admin/mision/update-file-mision/update-file-mision.component';
 import { UpdateMisionComponent } from './pages/admin/mision/update-mision/update-mision.component';
@@ -91,9 +93,14 @@ export const routes: Routes = [
         component: BannersComponent,
       },
       {
-        path: 'update/file',
+        path: 'banners/create',
         canActivate: [AuthGuard],
-        component: UpdateFileComponent,
+        component: CreateBannerComponent,
+      },
+      {
+        path: 'banners/edit',
+        canActivate: [AuthGuard],
+        component: EditBannerComponent,
       },
       {
         path: 'mision',

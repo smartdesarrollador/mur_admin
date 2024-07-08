@@ -15,9 +15,9 @@ import { Observable } from 'rxjs';
 })
 export class UploadService {
   selectCategory: Upload = new Upload();
-  urlListar = environment.apiListarFiles;
-  urlUpdateFile = environment.apiUpdateFile;
-  urlDelete = environment.apiDeleteFile;
+  urlListar = environment.apiListarFilesBanner;
+  urlUpdateFile = environment.apiUpdateFileBanner;
+  urlDelete = environment.apiDeleteFileBanner;
   constructor(private http: HttpClient) {}
 
   getCategories(): Observable<Upload> {
@@ -26,34 +26,17 @@ export class UploadService {
 
   uploadData(data: any) {
     const headers = new HttpHeaders();
-    return this.http.post(environment.apiUrl3, data, {
+    return this.http.post(environment.apiUrl3Banner, data, {
       headers: headers,
     });
   }
 
   updateData(data: any) {
     const headers = new HttpHeaders();
-    return this.http.post(environment.apiUpdateFile, data, {
+    return this.http.post(environment.apiUpdateFileBanner, data, {
       headers: headers,
     });
   }
-
-  /* editarImagen(idImagen: number, archivo: File): Observable<HttpEvent<any>> {
-    const formData: FormData = new FormData();
-    formData.append('nombre', archivo);
-
-    const req = new HttpRequest(
-      'PUT',
-      `${this.urlUpdateFile}/${idImagen}`,
-      formData,
-      {
-        reportProgress: true,
-        responseType: 'json',
-      }
-    );
-
-    return this.http.request(req);
-  } */
 
   deleteCategory(id: number) {
     return this.http.delete(this.urlDelete + '/' + id);

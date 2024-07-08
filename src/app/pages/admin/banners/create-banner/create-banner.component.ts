@@ -1,57 +1,48 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Upload } from 'src/app/models/upload.model';
 import { UploadService } from 'src/app/services/upload.service';
 import { CommonModule } from '@angular/common';
-import {
-  HttpClient,
-  HttpEvent,
-  HttpRequest,
-  HttpResponse,
-  HttpClientModule,
-} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Router, ActivatedRoute, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { environment } from 'src/environments/environment';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
-  selector: 'app-update-file',
+  selector: 'app-create-banner',
   standalone: true,
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterLink,
+    CKEditorModule,
   ],
-  templateUrl: './update-file.component.html',
-  styleUrl: './update-file.component.css',
+  templateUrl: './create-banner.component.html',
+  styleUrl: './create-banner.component.css',
 })
-export class UpdateFileComponent implements OnInit {
+export class CreateBannerComponent {
   listCategories: any = [];
   files_date: any;
   submitted = false;
   data: any;
   form: FormGroup = new FormGroup({});
   urlRaiz = environment.urlRaiz + '/';
-  valor_id_medios: any;
+  categoriaProductoId: any = 1;
+  public Editor = ClassicEditor;
   post = new Upload();
   constructor(
     private formBuilder: FormBuilder,
     private dataService: UploadService,
-    private router: Router,
-    private route: ActivatedRoute
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.createForm();
     this.loadCategories();
-
-    this.route.queryParams.subscribe((params) => {
-      const categoryId = params['categoryId'];
-      this.valor_id_medios = categoryId;
-    });
   }
 
   loadCategories() {
@@ -63,6 +54,8 @@ export class UpdateFileComponent implements OnInit {
 
   createForm() {
     this.form = this.formBuilder.group({
+      titulo: [null, Validators.required],
+      descripcion: [null, Validators.required],
       image: [null, Validators.required],
     });
   }
@@ -70,17 +63,6 @@ export class UpdateFileComponent implements OnInit {
   get f() {
     return this.form.controls;
   }
-
-  /* uploadImage(event: Event) {
-    if (event.target instanceof HTMLInputElement) {
-      if (event.target.files && event.target.files.length > 0) {
-        this.files = event.target.files[0];
-        console.log(this.files);
-      } else {
-        console.log('no se selecciono ningun archivo');
-      }
-    }
-  } */
 
   uploadImage(event: Event) {
     if (event.target instanceof HTMLInputElement) {
@@ -120,11 +102,10 @@ export class UpdateFileComponent implements OnInit {
     }
 
     const formData = new FormData();
-    formData.append('nombre', this.files_date, this.files_date.name);
-
-    formData.append('id_medios', this.valor_id_medios);
-
-    this.dataService.updateData(formData).subscribe((res) => {
+    formData.append('titulo', this.form.value.titulo);
+    formData.append('descripcion', this.form.value.descripcion);
+    formData.append('imagen', this.files_date, this.files_date.name);
+    this.dataService.uploadData(formData).subscribe((res) => {
       this.data = res;
       console.log(this.data);
       this.alerta();
@@ -150,6 +131,13 @@ export class UpdateFileComponent implements OnInit {
     Swal.fire({
       icon: 'error',
       title: 'Solo se permiten archivos JPG y PNG',
+    });
+  }
+
+  alertaDelete() {
+    Swal.fire({
+      icon: 'success',
+      title: 'Registro eliminado',
     });
   }
 }

@@ -1,6 +1,7 @@
 export class Upload {
-  id_medios?: number;
-  nombre?: string;
-  url?: string;
-  id_tipos_medios?: number;
+  id_banner?: number;
+  titulo?: string;
+  descripcion?: string;
+  imagen?: string;
+  ruta_imagen?: string;
 }
