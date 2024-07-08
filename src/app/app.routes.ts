@@ -41,6 +41,9 @@ import { ContactoComponent } from './pages/admin/contacto/contacto.component';
 import { TestimonioComponent } from './pages/admin/testimonio/testimonio.component';
 import { CreateTestimonioComponent } from './pages/admin/testimonio/create-testimonio/create-testimonio.component';
 import { EditTestimonioComponent } from './pages/admin/testimonio/edit-testimonio/edit-testimonio.component';
+import { SliderComponent } from './pages/admin/slider/slider.component';
+import { CreateSliderComponent } from './pages/admin/slider/create-slider/create-slider.component';
+import { EditSliderComponent } from './pages/admin/slider/edit-slider/edit-slider.component';
 
 export const routes: Routes = [
   {
@@ -118,14 +121,19 @@ export const routes: Routes = [
         component: UpdateMisionComponent,
       },
       {
-        path: 'carousel',
+        path: 'sliders',
         canActivate: [AuthGuard],
-        component: CarouselComponent,
+        component: SliderComponent,
       },
       {
-        path: 'carousel/update/file',
+        path: 'sliders/create',
         canActivate: [AuthGuard],
-        component: UpdateFileCarouselComponent,
+        component: CreateSliderComponent,
+      },
+      {
+        path: 'sliders/edit',
+        canActivate: [AuthGuard],
+        component: EditSliderComponent,
       },
       {
         path: 'equipo',

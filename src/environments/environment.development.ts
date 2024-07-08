@@ -38,4 +38,8 @@ export const environment = {
   apiUpdateFileBanner: 'http://127.0.0.1:8000/api/banners/update',
   apiListarFilesBanner: 'http://127.0.0.1:8000/api/banners',
   apiDeleteFileBanner: 'http://127.0.0.1:8000/api/banners',
+  apiUrl3Slider: 'http://127.0.0.1:8000/api/sliders/subir',
+  apiUpdateFileSlider: 'http://127.0.0.1:8000/api/sliders/update',
+  apiListarFilesSlider: 'http://127.0.0.1:8000/api/sliders',
+  apiDeleteFileSlider: 'http://127.0.0.1:8000/api/sliders',
 };

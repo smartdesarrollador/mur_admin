@@ -34,6 +34,14 @@
   apiUpdateFileTestimonio: 'https://apilegajo.amorinomoda.com/api/testimonios/update',
   apiListarFilesTestimonio: 'https://apilegajo.amorinomoda.com/api/testimonios',
   apiDeleteFileTestimonio: 'https://apilegajo.amorinomoda.com/api/testimonios',
+  apiUrl3Banner: 'https://apilegajo.amorinomoda.com/api/banners/subir',
+  apiUpdateFileBanner: 'https://apilegajo.amorinomoda.com/api/banners/update',
+  apiListarFilesBanner: 'https://apilegajo.amorinomoda.com/api/banners',
+  apiDeleteFileBanner: 'https://apilegajo.amorinomoda.com/api/banners',
+  apiUrl3Slider: 'https://apilegajo.amorinomoda.com/api/sliders/subir',
+  apiUpdateFileSlider: 'https://apilegajo.amorinomoda.com/api/sliders/update',
+  apiListarFilesSlider: 'https://apilegajo.amorinomoda.com/api/sliders',
+  apiDeleteFileSlider: 'https://apilegajo.amorinomoda.com/api/sliders',
 }; */
 
 export const environment = {
@@ -80,4 +88,8 @@ export const environment = {
   apiUpdateFileBanner: 'https://back.iatecdigital.com/api/banners/update',
   apiListarFilesBanner: 'https://back.iatecdigital.com/api/banners',
   apiDeleteFileBanner: 'https://back.iatecdigital.com/api/banners',
+  apiUrl3Slider: 'https://back.iatecdigital.com/api/sliders/subir',
+  apiUpdateFileSlider: 'https://back.iatecdigital.com/api/sliders/update',
+  apiListarFilesSlider: 'https://back.iatecdigital.com/api/sliders',
+  apiDeleteFileSlider: 'https://back.iatecdigital.com/api/sliders',
 };
