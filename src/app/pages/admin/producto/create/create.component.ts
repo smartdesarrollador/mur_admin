@@ -117,13 +117,14 @@ export class CreateComponent {
       this.data = res;
       console.log(this.data);
       this.alerta();
+      this.router.navigate(['/admin/equipo']);
     });
   }
 
   alerta() {
     Swal.fire({
       icon: 'success',
-      title: 'Imagen subida',
+      title: 'Registro creado',
     });
   }
 

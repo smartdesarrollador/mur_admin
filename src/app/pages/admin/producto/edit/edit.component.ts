@@ -128,12 +128,12 @@ export class EditComponent {
     formData.append('resumen', this.form.value.resumen);
     formData.append('descripcion', this.form.value.descripcion);
     formData.append('correo', this.form.value.correo);
+    formData.append('telefono', this.form.value.telefono);
 
     if (this.files_date) {
       formData.append('imagen', this.files_date, this.files_date.name);
     }
 
-    formData.append('telefono', this.form.value.telefono);
     formData.append('categoria_producto_id', this.categoriaProductoId);
 
     this.dataService.updateData(formData).subscribe((res) => {
@@ -147,7 +147,7 @@ export class EditComponent {
   alerta() {
     Swal.fire({
       icon: 'success',
-      title: 'Imagen subida',
+      title: 'Datos actualizados',
     });
   }
 

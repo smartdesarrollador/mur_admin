@@ -116,7 +116,7 @@ export class CreateSliderComponent {
   alerta() {
     Swal.fire({
       icon: 'success',
-      title: 'Imagen subida',
+      title: 'Registro creado',
     });
   }
 

@@ -138,7 +138,7 @@ export class EditBannerComponent {
   alerta() {
     Swal.fire({
       icon: 'success',
-      title: 'Imagen subida',
+      title: 'Registro editado',
     });
   }
 

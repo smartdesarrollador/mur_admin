@@ -138,7 +138,7 @@ export class EditSliderComponent {
   alerta() {
     Swal.fire({
       icon: 'success',
-      title: 'Imagen subida',
+      title: 'Registro editado',
     });
   }
 

@@ -109,13 +109,14 @@ export class CreateTestimonioComponent {
       this.data = res;
       console.log(this.data);
       this.alerta();
+      this.router.navigate(['/admin/servicios']);
     });
   }
 
   alerta() {
     Swal.fire({
       icon: 'success',
-      title: 'Imagen subida',
+      title: 'Registro Creado',
     });
   }
 

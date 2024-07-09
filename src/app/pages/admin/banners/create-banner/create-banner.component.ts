@@ -116,7 +116,7 @@ export class CreateBannerComponent {
   alerta() {
     Swal.fire({
       icon: 'success',
-      title: 'Imagen subida',
+      title: 'Registro creado',
     });
   }
 
