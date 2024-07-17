@@ -4,4 +4,6 @@ export class Testimonio {
   descripcion?: string;
   imagen?: string;
   ruta_imagen?: string;
+  banner?: string;
+  ruta_banner?: string;
 }
