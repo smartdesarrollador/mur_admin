@@ -13,7 +13,12 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "allowedCommonJsDependencies": ["apexcharts", "aos", "sweetalert2"],
+            "allowedCommonJsDependencies": [
+              "apexcharts",
+              "aos",
+              "sweetalert2",
+              "quill"
+            ],
             "outputPath": "dist/my-primer-proy-angular",
             "index": "src/index.html",
             "main": "src/main.ts",

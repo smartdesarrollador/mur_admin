@@ -31,12 +31,16 @@
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >Contenido</label
           >
-          <ckeditor
+          <!-- <ckeditor
             formControlName="descripcion"
             name="descripcion"
             [editor]="Editor"
             data="<p>Hello, world!</p>"
-          ></ckeditor>
+          ></ckeditor> -->
+          <quill-editor
+            formControlName="descripcion"
+            name="descripcion"
+          ></quill-editor>
         </div>
 
         <div class="mb-5" form-group>

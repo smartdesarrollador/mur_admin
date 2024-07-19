@@ -14,8 +14,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router, ActivatedRoute, RouterLink } from '@angular/router';
 import Swal from 'sweetalert2';
 import { environment } from 'src/environments/environment';
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+/* import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic'; */
+import { QuillModule } from 'ngx-quill';
 
 @Component({
   selector: 'app-edit-testimonio',
@@ -26,7 +27,8 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
     ReactiveFormsModule,
     HttpClientModule,
     RouterLink,
-    CKEditorModule,
+    /*  CKEditorModule, */
+    QuillModule,
   ],
   templateUrl: './edit-testimonio.component.html',
   styleUrl: './edit-testimonio.component.css',
@@ -40,7 +42,7 @@ export class EditTestimonioComponent {
   urlRaiz = environment.urlRaiz + '/';
   valor_id_testimonio: any;
   categoriaTestimonioId: any = 1;
-  public Editor = ClassicEditor;
+  /* public Editor = ClassicEditor; */
   post = new Testimonio();
   constructor(
     private formBuilder: FormBuilder,
