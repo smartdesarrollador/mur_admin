@@ -1,8 +1,15 @@
 @import "ngx-toastr/toastr";
 /* @import "~animate.css/animate.min.css"; */
 
+/*----- Quill -----*/
 @import "~quill/dist/quill.bubble.css";
 @import "~quill/dist/quill.snow.css";
+
+.ql-editor {
+  height: 350px;
+}
+
+/*---- /Quill -----*/
 
 /* You can add global styles to this file, and also import other style files */
 @tailwind base;

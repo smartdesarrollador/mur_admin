@@ -52,12 +52,20 @@
             >Contenido</label
           >
 
-          <ckeditor
+          <!-- <ckeditor
             formControlName="descripcion"
             name="descripcion"
             [editor]="Editor"
             data="<p>Hello, world!</p>"
-          ></ckeditor>
+          ></ckeditor> -->
+
+          <quill-editor
+            formControlName="descripcion"
+            name="descripcion"
+            id="txtContent"
+            [modules]="moduleQuill"
+            (onEditorChanged)="onChangeEditor($event)"
+          ></quill-editor>
         </div>
         <button
           type="submit"

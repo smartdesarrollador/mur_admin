@@ -40,6 +40,9 @@
           <quill-editor
             formControlName="descripcion"
             name="descripcion"
+            id="txtContent"
+            [modules]="moduleQuill"
+            (onEditorChanged)="onChangeEditor($event)"
           ></quill-editor>
         </div>
 
