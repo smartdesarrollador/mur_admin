@@ -76,7 +76,7 @@
                 <img
                   [src]="currentImageUrl"
                   alt="Current image"
-                  class="w-24 h-24 object-cover rounded-lg"
+                  class="w-14 h-14"
                   *ngIf="currentImageUrl"
                 />
               </div>
@@ -116,14 +116,94 @@
                 <img
                   [src]="currentImageUrlBanner"
                   alt="Current image"
-                  class="w-24 h-24 object-cover rounded-lg"
+                  class="w-40 h-24 object-cover"
                   *ngIf="currentImageUrlBanner"
                 />
               </div>
             </div>
           </div>
         </div>
+        <div class="mb-5" form-group>
+          <div class="grid grid-cols-2">
+            <div>
+              <label
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                for="imagen_uno"
+                >Imagen 1</label
+              >
+              <input
+                formControlName="imagen_uno"
+                name="imagen_uno"
+                id="imagen_uno"
+                (change)="uploadImageImagenUno($event)"
+                class="form-control block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                type="file"
+              />
+              <div
+                *ngIf="submitted && f['imagen_uno'].errors"
+                class="invalid-feedback"
+              >
+                <div
+                  class="text-red-500"
+                  *ngIf="f['imagen_uno'].errors['required']"
+                >
+                  Seleccionar archivo
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-center">
+                <img
+                  [src]="currentImageUrlImagenUno"
+                  alt="Current image"
+                  class="w-24 h-24 object-cover rounded-lg"
+                  *ngIf="currentImageUrlImagenUno"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
 
+        <div class="mb-5" form-group>
+          <div class="grid grid-cols-2">
+            <div>
+              <label
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                for="imagen_dos"
+                >Imagen 2</label
+              >
+              <input
+                formControlName="imagen_dos"
+                name="imagen_dos"
+                id="imagen_dos"
+                (change)="uploadImageImagenDos($event)"
+                class="form-control block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                type="file"
+              />
+              <div
+                *ngIf="submitted && f['imagen_dos'].errors"
+                class="invalid-feedback"
+              >
+                <div
+                  class="text-red-500"
+                  *ngIf="f['imagen_dos'].errors['required']"
+                >
+                  Seleccionar archivo
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-center">
+                <img
+                  [src]="currentImageUrlImagenDos"
+                  alt="Current image"
+                  class="w-24 h-24 object-cover rounded-lg"
+                  *ngIf="currentImageUrlImagenDos"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
         <button
           type="submit"
           class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"

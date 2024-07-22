@@ -4,7 +4,8 @@
       <thead class="rounded-t-lg bg-black text-white">
         <tr class="text-left text-xs font-bold uppercase">
           <td scope="col" class="px-6 py-3">Nombre</td>
-          <td scope="col" class="px-6 py-3">Imagen</td>
+          <td scope="col" class="px-6 py-3">Icono</td>
+          <td scope="col" class="px-6 py-3">Banner</td>
           <td scope="col" class="px-6 py-3">Editar</td>
           <td scope="col" class="px-6 py-3">Eliminar</td>
         </tr>
@@ -16,11 +17,10 @@
         >
           <td class="px-6 py-4">{{ item.titulo }}</td>
           <td class="px-6 py-4">
-            <img
-              class="max-w-[30%]"
-              src="{{ urlRaiz + item.ruta_imagen }}"
-              alt=""
-            />
+            <img class="w-20" src="{{ urlRaiz + item.ruta_imagen }}" alt="" />
+          </td>
+          <td class="px-6 py-4">
+            <img class="w-44" src="{{ urlRaiz + item.ruta_banner }}" alt="" />
           </td>
           <td class="px-6 py-4">
             <button

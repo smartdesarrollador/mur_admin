@@ -30,6 +30,8 @@ export class CreateTestimonioComponent {
   listCategories: any = [];
   files_date: any;
   files_date_banner: any;
+  files_date_imagen_uno: any;
+  files_date_imagen_dos: any;
   submitted = false;
   data: any;
   form: FormGroup = new FormGroup({});
@@ -92,6 +94,8 @@ export class CreateTestimonioComponent {
       descripcion: [null, Validators.required],
       image: [null, Validators.required],
       banner: [null, Validators.required],
+      imagen_uno: [null, Validators.required],
+      imagen_dos: [null, Validators.required],
     });
   }
 
@@ -161,6 +165,67 @@ export class CreateTestimonioComponent {
     }
   }
 
+  uploadImageImagenUno(event: Event) {
+    if (event.target instanceof HTMLInputElement) {
+      if (event.target.files && event.target.files.length > 0) {
+        const files_imagen_uno = event.target.files[0];
+        this.files_date_imagen_uno = files_imagen_uno;
+        const maxSizeInBytes = 5 * 1024 * 1024; // 5MB
+
+        if (files_imagen_uno.size > maxSizeInBytes) {
+          console.log('La imagen excede el tamaño máximo permitido (5MB)');
+          this.alertaMaxFile();
+          // Puedes mostrar un mensaje de error o realizar otra acción
+          event.target.value = ''; // Limpiar el input file
+          return;
+        }
+
+        if (!['image/jpeg', 'image/png'].includes(files_imagen_uno.type)) {
+          console.log('Solo se permiten archivos JPG y PNG');
+          this.alertaExtFile();
+          // Puedes mostrar un mensaje de error o realizar otra acción
+          event.target.value = ''; // Limpiar el input file
+          return;
+        }
+
+        // Aquí puedes continuar con el proceso de carga de la imagen
+        console.log('Archivo seleccionado:', files_imagen_uno);
+      } else {
+        console.log('No se seleccionó ningún archivo');
+      }
+    }
+  }
+
+  uploadImageImagenDos(event: Event) {
+    if (event.target instanceof HTMLInputElement) {
+      if (event.target.files && event.target.files.length > 0) {
+        const files_imagen_dos = event.target.files[0];
+        this.files_date_imagen_dos = files_imagen_dos;
+        const maxSizeInBytes = 5 * 1024 * 1024; // 5MB
+
+        if (files_imagen_dos.size > maxSizeInBytes) {
+          console.log('La imagen excede el tamaño máximo permitido (5MB)');
+          this.alertaMaxFile();
+          // Puedes mostrar un mensaje de error o realizar otra acción
+          event.target.value = ''; // Limpiar el input file
+          return;
+        }
+
+        if (!['image/jpeg', 'image/png'].includes(files_imagen_dos.type)) {
+          console.log('Solo se permiten archivos JPG y PNG');
+          this.alertaExtFile();
+          // Puedes mostrar un mensaje de error o realizar otra acción
+          event.target.value = ''; // Limpiar el input file
+          return;
+        }
+
+        // Aquí puedes continuar con el proceso de carga de la imagen
+        console.log('Archivo seleccionado:', files_imagen_dos);
+      } else {
+        console.log('No se seleccionó ningún archivo');
+      }
+    }
+  }
   onSubmit() {
     this.submitted = true;
     if (this.form.invalid) {
@@ -175,6 +240,16 @@ export class CreateTestimonioComponent {
       'banner',
       this.files_date_banner,
       this.files_date_banner.name
+    );
+    formData.append(
+      'imagen_uno',
+      this.files_date_imagen_uno,
+      this.files_date_imagen_uno.name
+    );
+    formData.append(
+      'imagen_dos',
+      this.files_date_imagen_dos,
+      this.files_date_imagen_dos.name
     );
     this.dataService.uploadData(formData).subscribe((res) => {
       this.data = res;
