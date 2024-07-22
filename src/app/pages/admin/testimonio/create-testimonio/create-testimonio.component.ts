@@ -29,6 +29,7 @@ import { QuillModule } from 'ngx-quill';
 export class CreateTestimonioComponent {
   listCategories: any = [];
   files_date: any;
+  files_date_banner: any;
   submitted = false;
   data: any;
   form: FormGroup = new FormGroup({});
@@ -90,6 +91,7 @@ export class CreateTestimonioComponent {
       titulo: [null, Validators.required],
       descripcion: [null, Validators.required],
       image: [null, Validators.required],
+      banner: [null, Validators.required],
     });
   }
 
@@ -128,6 +130,37 @@ export class CreateTestimonioComponent {
     }
   }
 
+  uploadImageBanner(event: Event) {
+    if (event.target instanceof HTMLInputElement) {
+      if (event.target.files && event.target.files.length > 0) {
+        const filesBanner = event.target.files[0];
+        this.files_date_banner = filesBanner;
+        const maxSizeInBytes = 5 * 1024 * 1024; // 5MB
+
+        if (filesBanner.size > maxSizeInBytes) {
+          console.log('La imagen excede el tamaño máximo permitido (5MB)');
+          this.alertaMaxFile();
+          // Puedes mostrar un mensaje de error o realizar otra acción
+          event.target.value = ''; // Limpiar el input file
+          return;
+        }
+
+        if (!['image/jpeg', 'image/png'].includes(filesBanner.type)) {
+          console.log('Solo se permiten archivos JPG y PNG');
+          this.alertaExtFile();
+          // Puedes mostrar un mensaje de error o realizar otra acción
+          event.target.value = ''; // Limpiar el input file
+          return;
+        }
+
+        // Aquí puedes continuar con el proceso de carga de la imagen
+        console.log('Archivo seleccionado:', filesBanner);
+      } else {
+        console.log('No se seleccionó ningún archivo');
+      }
+    }
+  }
+
   onSubmit() {
     this.submitted = true;
     if (this.form.invalid) {
@@ -138,6 +171,11 @@ export class CreateTestimonioComponent {
     formData.append('titulo', this.form.value.titulo);
     formData.append('descripcion', this.form.value.descripcion);
     formData.append('imagen', this.files_date, this.files_date.name);
+    formData.append(
+      'banner',
+      this.files_date_banner,
+      this.files_date_banner.name
+    );
     this.dataService.uploadData(formData).subscribe((res) => {
       this.data = res;
       console.log(this.data);

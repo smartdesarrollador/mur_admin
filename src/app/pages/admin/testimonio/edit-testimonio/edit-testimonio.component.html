@@ -47,22 +47,79 @@
         </div>
 
         <div class="mb-5" form-group>
-          <label
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            for="image"
-            >Imagen</label
-          >
-          <input
-            formControlName="image"
-            name="image"
-            id="image"
-            (change)="uploadImage($event)"
-            class="form-control block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-            type="file"
-          />
-          <div *ngIf="submitted && f['image'].errors" class="invalid-feedback">
-            <div class="text-red-500" *ngIf="f['image'].errors['required']">
-              Seleccionar archivo
+          <div class="grid grid-cols-2">
+            <div>
+              <label
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                for="image"
+                >Icono</label
+              >
+              <input
+                formControlName="image"
+                name="image"
+                id="image"
+                (change)="uploadImage($event)"
+                class="form-control block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                type="file"
+              />
+              <div
+                *ngIf="submitted && f['image'].errors"
+                class="invalid-feedback"
+              >
+                <div class="text-red-500" *ngIf="f['image'].errors['required']">
+                  Seleccionar archivo
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-center">
+                <img
+                  [src]="currentImageUrl"
+                  alt="Current image"
+                  class="w-24 h-24 object-cover rounded-lg"
+                  *ngIf="currentImageUrl"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mb-5" form-group>
+          <div class="grid grid-cols-2">
+            <div>
+              <label
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                for="banner"
+                >Banner</label
+              >
+              <input
+                formControlName="banner"
+                name="banner"
+                id="banner"
+                (change)="uploadImageBanner($event)"
+                class="form-control block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                type="file"
+              />
+              <div
+                *ngIf="submitted && f['banner'].errors"
+                class="invalid-feedback"
+              >
+                <div
+                  class="text-red-500"
+                  *ngIf="f['banner'].errors['required']"
+                >
+                  Seleccionar archivo
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-center">
+                <img
+                  [src]="currentImageUrlBanner"
+                  alt="Current image"
+                  class="w-24 h-24 object-cover rounded-lg"
+                  *ngIf="currentImageUrlBanner"
+                />
+              </div>
             </div>
           </div>
         </div>

@@ -24,6 +24,10 @@ export class TestimonioService {
     return this.http.get(this.urlListar);
   }
 
+  getServicioId(id: number) {
+    return this.http.get(this.urlListar + '/' + id);
+  }
+
   uploadData(data: any) {
     const headers = new HttpHeaders();
     return this.http.post(environment.apiUrl3Testimonio, data, {

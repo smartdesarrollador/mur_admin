@@ -20,6 +20,7 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic'; */
 /*  1 - Quill */
 import { QuillModule } from 'ngx-quill';
 /*  /1 - Quill  */
+import { initFlowbite } from 'flowbite';
 
 @Component({
   selector: 'app-edit-testimonio',
@@ -41,6 +42,7 @@ import { QuillModule } from 'ngx-quill';
 export class EditTestimonioComponent {
   listCategories: any = [];
   files_date: any;
+  files_date_banner: any;
   submitted = false;
   data: any;
   form: FormGroup = new FormGroup({});
@@ -49,6 +51,8 @@ export class EditTestimonioComponent {
   categoriaTestimonioId: any = 1;
   /* public Editor = ClassicEditor; */
   post = new Testimonio();
+  currentImageUrl: string | null = null;
+  currentImageUrlBanner: string | null = null;
 
   htmlContent: any;
 
@@ -84,12 +88,14 @@ export class EditTestimonioComponent {
   ) {}
 
   ngOnInit(): void {
+    initFlowbite();
     this.createForm();
     this.loadCategories();
 
     this.route.queryParams.subscribe((params) => {
       const categoryId = params['categoryId'];
       this.valor_id_testimonio = categoryId;
+      this.loadCurrentImage(categoryId);
     });
   }
 
@@ -106,6 +112,18 @@ export class EditTestimonioComponent {
     });
   }
 
+  loadCurrentImage(id: any) {
+    // Asumiendo que tienes un método en tu servicio para obtener los detalles del testimonio
+    this.dataService.getServicioId(id).subscribe((testimonio: any) => {
+      if (testimonio && testimonio.imagen) {
+        this.currentImageUrl = this.urlRaiz + testimonio.ruta_imagen;
+      }
+      if (testimonio && testimonio.banner) {
+        this.currentImageUrlBanner = this.urlRaiz + testimonio.ruta_banner;
+      }
+    });
+  }
+
   createForm() {
     this.form = this.formBuilder.group({
       titulo: [this.dataService.selectCategory.titulo, Validators.required],
@@ -114,6 +132,7 @@ export class EditTestimonioComponent {
         Validators.required,
       ],
       image: [null],
+      banner: [null],
     });
   }
 
@@ -152,6 +171,37 @@ export class EditTestimonioComponent {
     }
   }
 
+  uploadImageBanner(event: Event) {
+    if (event.target instanceof HTMLInputElement) {
+      if (event.target.files && event.target.files.length > 0) {
+        const filesBanner = event.target.files[0];
+        this.files_date_banner = filesBanner;
+        const maxSizeInBytes = 5 * 1024 * 1024; // 5MB
+
+        if (filesBanner.size > maxSizeInBytes) {
+          console.log('La imagen excede el tamaño máximo permitido (5MB)');
+          this.alertaMaxFile();
+          // Puedes mostrar un mensaje de error o realizar otra acción
+          event.target.value = ''; // Limpiar el input file
+          return;
+        }
+
+        if (!['image/jpeg', 'image/png'].includes(filesBanner.type)) {
+          console.log('Solo se permiten archivos JPG y PNG');
+          this.alertaExtFile();
+          // Puedes mostrar un mensaje de error o realizar otra acción
+          event.target.value = ''; // Limpiar el input file
+          return;
+        }
+
+        // Aquí puedes continuar con el proceso de carga de la imagen
+        console.log('Archivo seleccionado:', filesBanner);
+      } else {
+        console.log('No se seleccionó ningún archivo');
+      }
+    }
+  }
+
   onSubmit() {
     this.submitted = true;
     /*  if (this.form.invalid) {
@@ -165,6 +215,14 @@ export class EditTestimonioComponent {
 
     if (this.files_date) {
       formData.append('imagen', this.files_date, this.files_date.name);
+    }
+
+    if (this.files_date_banner) {
+      formData.append(
+        'banner',
+        this.files_date_banner,
+        this.files_date_banner.name
+      );
     }
 
     this.dataService.updateData(formData).subscribe((res) => {
