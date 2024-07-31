@@ -44,6 +44,12 @@ import { EditTestimonioComponent } from './pages/admin/testimonio/edit-testimoni
 import { SliderComponent } from './pages/admin/slider/slider.component';
 import { CreateSliderComponent } from './pages/admin/slider/create-slider/create-slider.component';
 import { EditSliderComponent } from './pages/admin/slider/edit-slider/edit-slider.component';
+import { SalaDePrensaComponent } from './pages/admin/publicacion/sala-de-prensa/sala-de-prensa.component';
+import { CreateSalaDePrensaComponent } from './pages/admin/publicacion/sala-de-prensa/create-sala-de-prensa/create-sala-de-prensa.component';
+import { EditSalaDePrensaComponent } from './pages/admin/publicacion/sala-de-prensa/edit-sala-de-prensa/edit-sala-de-prensa.component';
+import { InformativoComponent } from './pages/admin/publicacion/informativo/informativo.component';
+import { CreateInformativoComponent } from './pages/admin/publicacion/informativo/create-informativo/create-informativo.component';
+import { EditInformativoComponent } from './pages/admin/publicacion/informativo/edit-informativo/edit-informativo.component';
 
 export const routes: Routes = [
   {
@@ -184,6 +190,36 @@ export const routes: Routes = [
         path: 'servicios/edit',
         canActivate: [AuthGuard],
         component: EditTestimonioComponent,
+      },
+      {
+        path: 'publicaciones/sala-de-prensa',
+        canActivate: [AuthGuard],
+        component: SalaDePrensaComponent,
+      },
+      {
+        path: 'publicaciones/sala-de-prensa/create',
+        canActivate: [AuthGuard],
+        component: CreateSalaDePrensaComponent,
+      },
+      {
+        path: 'publicaciones/sala-de-prensa/edit',
+        canActivate: [AuthGuard],
+        component: EditSalaDePrensaComponent,
+      },
+      {
+        path: 'publicaciones/informativo',
+        canActivate: [AuthGuard],
+        component: InformativoComponent,
+      },
+      {
+        path: 'publicaciones/informativo/create',
+        canActivate: [AuthGuard],
+        component: CreateInformativoComponent,
+      },
+      {
+        path: 'publicaciones/informativo/edit',
+        canActivate: [AuthGuard],
+        component: EditInformativoComponent,
       },
     ],
   },

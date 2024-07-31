@@ -91,4 +91,8 @@ export const environment = {
   apiUpdateFileSlider: 'https://api.hawatech.agency/api/sliders/update',
   apiListarFilesSlider: 'https://api.hawatech.agency/api/sliders',
   apiDeleteFileSlider: 'https://api.hawatech.agency/api/sliders',
+  apiUrl3Sala: 'https://api.hawatech.agency/api/salas/subir',
+  apiUpdateFileSala: 'https://api.hawatech.agency/api/salas/update',
+  apiListarFilesSala: 'https://api.hawatech.agency/api/salas',
+  apiDeleteFileSala: 'https://api.hawatech.agency/api/salas',
 };

@@ -42,4 +42,8 @@ export const environment = {
   apiUpdateFileSlider: 'http://127.0.0.1:8000/api/sliders/update',
   apiListarFilesSlider: 'http://127.0.0.1:8000/api/sliders',
   apiDeleteFileSlider: 'http://127.0.0.1:8000/api/sliders',
+  apiUrl3Sala: 'http://127.0.0.1:8000/api/salas/subir',
+  apiUpdateFileSala: 'http://127.0.0.1:8000/api/salas/update',
+  apiListarFilesSala: 'http://127.0.0.1:8000/api/salas',
+  apiDeleteFileSala: 'http://127.0.0.1:8000/api/salas',
 };
