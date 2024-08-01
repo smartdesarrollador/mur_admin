@@ -150,13 +150,14 @@ export class CreateInformativoComponent {
       this.data = res;
       console.log(this.data);
       this.alerta();
+      this.router.navigate(['/admin/publicaciones/informativo']);
     });
   }
 
   alerta() {
     Swal.fire({
       icon: 'success',
-      title: 'Imagen subida',
+      title: 'Registro creado',
     });
   }
 
