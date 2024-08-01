@@ -46,4 +46,8 @@ export const environment = {
   apiUpdateFileSala: 'http://127.0.0.1:8000/api/salas/update',
   apiListarFilesSala: 'http://127.0.0.1:8000/api/salas',
   apiDeleteFileSala: 'http://127.0.0.1:8000/api/salas',
+  apiUrl3Informativo: 'http://127.0.0.1:8000/api/informativos/subir',
+  apiUpdateFileInformativo: 'http://127.0.0.1:8000/api/informativos/update',
+  apiListarFilesInformativo: 'http://127.0.0.1:8000/api/informativos',
+  apiDeleteFileInformativo: 'http://127.0.0.1:8000/api/informativos',
 };
