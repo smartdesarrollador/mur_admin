@@ -85,7 +85,44 @@
             </div>
           </div>
         </div>
-
+        <div class="mb-5" form-group>
+          <div class="grid grid-cols-2">
+            <div>
+              <label
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                for="pdf"
+                >Pdf</label
+              >
+              <input
+                formControlName="pdf"
+                name="pdf"
+                id="pdf"
+                (change)="uploadImagePdf($event)"
+                class="form-control block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                type="file"
+              />
+              <div
+                *ngIf="submitted && f['pdf'].errors"
+                class="invalid-feedback"
+              >
+                <div class="text-red-500" *ngIf="f['pdf'].errors['required']">
+                  Seleccionar Pdf
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-center">
+                <a
+                  class="pt-10 text-blue-500 hover:underline"
+                  target="_blank"
+                  [href]="currentImageUrlPdf"
+                  *ngIf="currentImageUrlPdf"
+                  >Descargar Pdf</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="mb-5" form-group>
           <label
             for="base-input"

@@ -40,6 +40,7 @@ import { QuillModule } from 'ngx-quill';
 export class EditInformativoComponent {
   listCategories: any = [];
   files_date: any;
+  files_date_pdf: any;
   submitted = false;
   data: any;
   form: FormGroup = new FormGroup({});
@@ -48,6 +49,9 @@ export class EditInformativoComponent {
 
   valor_destacado: any;
   post = new Informativo();
+  currentImageUrl: string | null = null;
+  currentImageUrlPdf: string | null = null;
+
   htmlContent: any;
 
   moduleQuill = {
@@ -87,6 +91,7 @@ export class EditInformativoComponent {
     this.route.queryParams.subscribe((params) => {
       const categoryId = params['categoryId'];
       this.valor_id_informativo = categoryId;
+      this.loadCurrentPdf(categoryId);
     });
     this.valor_destacado = this.dataService.selectCategory.destacado;
   }
@@ -104,6 +109,18 @@ export class EditInformativoComponent {
     });
   }
 
+  loadCurrentPdf(id: any) {
+    // Asumiendo que tienes un método en tu servicio para obtener los detalles del testimonio
+    this.dataService.getInformativoId(id).subscribe((informativo: any) => {
+      if (informativo && informativo.imagen) {
+        this.currentImageUrl = this.urlRaiz + informativo.ruta_imagen;
+      }
+      if (informativo && informativo.pdf) {
+        this.currentImageUrlPdf = this.urlRaiz + informativo.ruta_pdf;
+      }
+    });
+  }
+
   createForm() {
     this.form = this.formBuilder.group({
       titulo: [this.dataService.selectCategory.titulo, Validators.required],
@@ -114,6 +131,7 @@ export class EditInformativoComponent {
       ],
       fuente: [this.dataService.selectCategory.fuente, Validators.required],
       image: [null],
+      pdf: [null],
       /* maestro: [this.dataService.selectCategory.maestro, Validators.required], */
       autor: [this.dataService.selectCategory.autor, Validators.required],
       destacado: [
@@ -157,6 +175,37 @@ export class EditInformativoComponent {
     }
   }
 
+  uploadImagePdf(event: Event) {
+    if (event.target instanceof HTMLInputElement) {
+      if (event.target.files && event.target.files.length > 0) {
+        const filesPdf = event.target.files[0];
+        this.files_date_pdf = filesPdf;
+        const maxSizeInBytes = 5 * 1024 * 1024; // 5MB
+
+        if (filesPdf.size > maxSizeInBytes) {
+          console.log('La imagen excede el tamaño máximo permitido (5MB)');
+          this.alertaMaxFilePdf();
+          // Puedes mostrar un mensaje de error o realizar otra acción
+          event.target.value = ''; // Limpiar el input file
+          return;
+        }
+
+        if (filesPdf.type !== 'application/pdf') {
+          console.log('Solo se permiten archivos PDF');
+          this.alertaExtFilePdf();
+          // Puedes mostrar un mensaje de error o realizar otra acción
+          event.target.value = ''; // Limpiar el input file
+          return;
+        }
+
+        // Aquí puedes continuar con el proceso de carga de la imagen
+        console.log('Archivo seleccionado:', filesPdf);
+      } else {
+        console.log('No se seleccionó ningún archivo');
+      }
+    }
+  }
+
   onSubmit() {
     this.submitted = true;
     /*  if (this.form.invalid) {
@@ -172,6 +221,10 @@ export class EditInformativoComponent {
 
     if (this.files_date) {
       formData.append('imagen', this.files_date, this.files_date.name);
+    }
+
+    if (this.files_date_pdf) {
+      formData.append('pdf', this.files_date_pdf, this.files_date_pdf.name);
     }
     formData.append('autor', this.form.value.autor);
     formData.append('destacado', this.form.value.destacado);
@@ -202,6 +255,20 @@ export class EditInformativoComponent {
     Swal.fire({
       icon: 'error',
       title: 'Solo se permiten archivos JPG y PNG',
+    });
+  }
+
+  alertaMaxFilePdf() {
+    Swal.fire({
+      icon: 'error',
+      title: 'La imagen excede el tamaño máximo permitido (5MB)',
+    });
+  }
+
+  alertaExtFilePdf() {
+    Swal.fire({
+      icon: 'error',
+      title: 'Solo se permiten archivos Pdf',
     });
   }
 }

@@ -6,6 +6,8 @@ export class Informativo {
   fuente?: string;
   imagen?: string;
   ruta_imagen?: string;
+  pdf?: string;
+  ruta_pdf?: string;
   autor?: string;
   destacado?: string;
 }

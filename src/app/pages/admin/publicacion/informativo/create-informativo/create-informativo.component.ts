@@ -31,6 +31,7 @@ import { QuillModule } from 'ngx-quill';
 export class CreateInformativoComponent {
   listCategories: any = [];
   files_date: any;
+  files_date_pdf: any;
   submitted = false;
   data: any;
   form: FormGroup = new FormGroup({});
@@ -92,6 +93,7 @@ export class CreateInformativoComponent {
       descripcion: [null, Validators.required],
       fuente: [null, Validators.required],
       image: [null, Validators.required],
+      pdf: [null, Validators.required],
       autor: [null, Validators.required],
       destacado: [false],
     });
@@ -132,6 +134,37 @@ export class CreateInformativoComponent {
     }
   }
 
+  uploadImagePdf(event: Event) {
+    if (event.target instanceof HTMLInputElement) {
+      if (event.target.files && event.target.files.length > 0) {
+        const filesPdf = event.target.files[0];
+        this.files_date_pdf = filesPdf;
+        const maxSizeInBytes = 5 * 1024 * 1024; // 5MB
+
+        if (filesPdf.size > maxSizeInBytes) {
+          console.log('La imagen excede el tamaño máximo permitido (5MB)');
+          this.alertaMaxFilePdf();
+          // Puedes mostrar un mensaje de error o realizar otra acción
+          event.target.value = ''; // Limpiar el input file
+          return;
+        }
+
+        if (filesPdf.type !== 'application/pdf') {
+          console.log('Solo se permiten archivos PDF');
+          this.alertaExtFilePdf();
+          // Puedes mostrar un mensaje de error o realizar otra acción
+          event.target.value = ''; // Limpiar el input file
+          return;
+        }
+
+        // Aquí puedes continuar con el proceso de carga de la imagen
+        console.log('Archivo seleccionado:', filesPdf);
+      } else {
+        console.log('No se seleccionó ningún archivo');
+      }
+    }
+  }
+
   onSubmit() {
     this.submitted = true;
     if (this.form.invalid) {
@@ -144,6 +177,7 @@ export class CreateInformativoComponent {
     formData.append('descripcion', this.form.value.descripcion);
     formData.append('fuente', this.form.value.fuente);
     formData.append('imagen', this.files_date, this.files_date.name);
+    formData.append('pdf', this.files_date_pdf, this.files_date_pdf.name);
     formData.append('autor', this.form.value.autor);
     formData.append('destacado', this.form.value.destacado);
     this.dataService.uploadData(formData).subscribe((res) => {
@@ -172,6 +206,20 @@ export class CreateInformativoComponent {
     Swal.fire({
       icon: 'error',
       title: 'Solo se permiten archivos JPG y PNG',
+    });
+  }
+
+  alertaMaxFilePdf() {
+    Swal.fire({
+      icon: 'error',
+      title: 'La imagen excede el tamaño máximo permitido (5MB)',
+    });
+  }
+
+  alertaExtFilePdf() {
+    Swal.fire({
+      icon: 'error',
+      title: 'Solo se permiten archivos Pdf',
     });
   }
 
