@@ -1,3 +1,4 @@
+/* 2.- CRUD-BASICO-V1-P2 */
 export class Producto {
   id_producto?: number;
   nombre?: string;
@@ -13,3 +14,4 @@ export class Producto {
   ruta_imagen?: string;
   categoria_producto_id?: number;
 }
+/* /2.- CRUD-BASICO-V1-P2 */

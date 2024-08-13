@@ -1,3 +1,4 @@
+/* 8.- CRUD-BASICO-V1-P2 */
 import { Component } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Producto } from 'src/app/models/producto.model';
@@ -182,3 +183,4 @@ export class CreateComponent {
     });
   }
 }
+/* /8.- CRUD-BASICO-V1-P2 */

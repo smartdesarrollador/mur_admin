@@ -1,3 +1,4 @@
+/* 5.- CRUD-BASICO-V1-P2 */
 import { Injectable } from '@angular/core';
 import {
   HttpClient,
@@ -69,3 +70,4 @@ export class ProductoService {
     return this.http.delete(this.urlDelete + '/' + id);
   }
 }
+/* /5.- CRUD-BASICO-V1-P2 */

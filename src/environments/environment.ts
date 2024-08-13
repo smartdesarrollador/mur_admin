@@ -71,10 +71,12 @@ export const environment = {
     'https://api.hawatech.agency/api/carousel/listar/files',
   apiDeleteFileCarousel:
     'https://api.hawatech.agency/api/carousel/update/upload',
+  /* 4.- CRUD-BASICO-V1-P2 */
   apiUrl3Producto: 'https://api.hawatech.agency/api/productos/subir',
   apiUpdateFileProducto: 'https://api.hawatech.agency/api/productos/update',
   apiListarFilesProducto: 'https://api.hawatech.agency/api/productos',
   apiListarCursosProducto: 'https://api.hawatech.agency/api/productos/cursos',
+  /* /4.- CRUD-BASICO-V1-P2 */
   apiListarEspecialidadesProducto:
     'https://api.hawatech.agency/api/productos/especialidades',
   apiDeleteFileProducto: 'https://api.hawatech.agency/api/productos',
