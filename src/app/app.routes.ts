@@ -1,7 +1,8 @@
 import { Routes } from '@angular/router';
-
+/* 9.- LOGIN_REGISTER_BASICO-V1-P2 */
 import { LoginComponent } from './pages/login/login/login.component';
 import { RegisterComponent } from './pages/login/register/register.component';
+/* /9.- LOGIN_REGISTER_BASICO-V1-P2 */
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { VistaComponent } from './pages/vista/vista.component';
@@ -56,6 +57,7 @@ export const routes: Routes = [
     path: 'portal',
     component: PortalComponent,
   },
+  /* 10.- LOGIN_REGISTER_BASICO-V1-P2 */
   {
     path: '',
     children: [
@@ -69,6 +71,7 @@ export const routes: Routes = [
       },
     ],
   },
+  /* /10.- LOGIN_REGISTER_BASICO-V1-P2 */
   /*  {
     path: '',
     component: VistaComponent,

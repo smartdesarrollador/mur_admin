@@ -54,8 +54,10 @@ export const environment = {
   apiListarFiles: 'https://api.hawatech.agency/api/listar/files',
   apiDeleteFile: 'https://api.hawatech.agency/api/update/upload',
   apiUrlTrabajador: 'https://api.hawatech.agency/api/trabajador',
+  /* 3.- LOGIN_REGISTER_BASICO-V1-P2 */
   apiUrlRegister: 'https://api.hawatech.agency/api/register',
   apiUrlLogin: 'https://api.hawatech.agency/api/login',
+  /* /3.- LOGIN_REGISTER_BASICO-V1-P2 */
   apiUrlEmail: 'https://api.hawatech.agency/api/enviar_correo',
   apiUrlEmpleador: 'https://api.hawatech.agency/api/empleador',
   apiUrlUltimoEmpleador: 'https://api.hawatech.agency/api/ultimo_empleador',

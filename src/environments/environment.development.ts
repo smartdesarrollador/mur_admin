@@ -8,8 +8,10 @@ export const environment = {
   apiListarFiles: 'http://127.0.0.1:8000/api/listar/files',
   apiDeleteFile: 'http://127.0.0.1:8000/api/update/upload',
   apiUrlTrabajador: 'http://127.0.0.1:8000/api/trabajador',
+  /* 2.- LOGIN_REGISTER_BASICO-V1-P2 */
   apiUrlRegister: 'http://127.0.0.1:8000/api/register',
   apiUrlLogin: 'http://127.0.0.1:8000/api/login',
+  /* /2.- LOGIN_REGISTER_BASICO-V1-P2 */
   apiUrlEmail: 'http://127.0.0.1:8000/api/enviar_correo',
   apiUrlEmpleador: 'http://127.0.0.1:8000/api/empleador',
   apiUrlUltimoEmpleador: 'http://127.0.0.1:8000/api/ultimo_empleador',

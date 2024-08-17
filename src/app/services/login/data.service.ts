@@ -1,3 +1,4 @@
+/* 4.- LOGIN_REGISTER_BASICO-V1-P2 */
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
@@ -16,3 +17,4 @@ export class DataService {
     return this.http.post(environment.apiUrlLogin, data);
   }
 }
+/* /4.- LOGIN_REGISTER_BASICO-V1-P2 */

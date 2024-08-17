@@ -1,3 +1,4 @@
+/* 7.- LOGIN_REGISTER_BASICO-V1-P2 */
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/login/data.service';
 import {
@@ -28,8 +29,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private dataService: DataService,
-    /* private toastr: ToastrService */
+    private dataService: DataService /* private toastr: ToastrService */
   ) {
     this.form = this.formBuilder.group(
       {
@@ -110,3 +110,4 @@ export class RegisterComponent implements OnInit {
     });
   }
 }
+/* /7.- LOGIN_REGISTER_BASICO-V1-P2 */

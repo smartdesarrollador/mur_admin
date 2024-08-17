@@ -1,3 +1,4 @@
+/* 12.- LOGIN_REGISTER_BASICO-V1-P2 */
 import { Injectable } from '@angular/core';
 import {
   Router,
@@ -26,3 +27,4 @@ export class AuthGuard {
     }
   };
 }
+/* /12.- LOGIN_REGISTER_BASICO-V1-P2 */

@@ -1,3 +1,4 @@
+/* 5.- LOGIN_REGISTER_BASICO-V1-P2 */
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
@@ -92,3 +93,4 @@ export class LoginComponent {
     });
   }
 }
+/* /5.- LOGIN_REGISTER_BASICO-V1-P2 */
