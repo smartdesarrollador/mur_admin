@@ -2,6 +2,7 @@
 export class Producto {
   id_producto?: number;
   nombre?: string;
+  cargo?: string;
   resumen?: string;
   descripcion?: string;
   correo?: string;
@@ -12,6 +13,8 @@ export class Producto {
   observacion?: string;
   duracion?: string;
   ruta_imagen?: string;
+  pdf?: string;
+  ruta_pdf?: string;
   categoria_producto_id?: number;
 }
 /* /2.- CRUD-BASICO-V1-P2 */

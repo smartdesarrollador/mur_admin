@@ -23,6 +23,12 @@
             name="titulo"
             class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           />
+          <div
+            *ngIf="submitted && titulo.errors"
+            class="invalid-feedback text-red-500"
+          >
+            <div *ngIf="titulo.errors?.['required']">Titulo es requerido</div>
+          </div>
         </div>
 
         <div class="mb-5" form-group>
@@ -46,6 +52,14 @@
             [modules]="moduleQuill"
             (onEditorChanged)="onChangeEditor($event)"
           ></quill-editor>
+          <div
+            *ngIf="submitted && descripcion.errors"
+            class="invalid-feedback text-red-500"
+          >
+            <div *ngIf="descripcion.errors?.['required']">
+              Contenido es requerido
+            </div>
+          </div>
         </div>
         <div class="mb-5" form-group>
           <label
@@ -61,9 +75,12 @@
             class="form-control block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
             type="file"
           />
-          <div *ngIf="submitted && f['image'].errors" class="invalid-feedback">
-            <div class="text-red-500" *ngIf="f['image'].errors['required']">
-              Seleccionar archivo
+          <div
+            *ngIf="submitted && image['image'].errors"
+            class="invalid-feedback"
+          >
+            <div class="text-red-500" *ngIf="image['image'].errors['required']">
+              Seleccionar Icono
             </div>
           </div>
         </div>
@@ -81,9 +98,15 @@
             class="form-control block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
             type="file"
           />
-          <div *ngIf="submitted && f['banner'].errors" class="invalid-feedback">
-            <div class="text-red-500" *ngIf="f['banner'].errors['required']">
-              Seleccionar archivo
+          <div
+            *ngIf="submitted && banner['banner'].errors"
+            class="invalid-feedback"
+          >
+            <div
+              class="text-red-500"
+              *ngIf="banner['banner'].errors['required']"
+            >
+              Seleccionar banner
             </div>
           </div>
         </div>
@@ -91,7 +114,7 @@
           <label
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             for="imagen_uno"
-            >Subir Icono</label
+            >Subir imagen 1</label
           >
           <input
             formControlName="imagen_uno"
@@ -102,12 +125,12 @@
             type="file"
           />
           <div
-            *ngIf="submitted && f['imagen_uno'].errors"
+            *ngIf="submitted && imagen_uno['imagen_uno'].errors"
             class="invalid-feedback"
           >
             <div
               class="text-red-500"
-              *ngIf="f['imagen_uno'].errors['required']"
+              *ngIf="imagen_uno['imagen_uno'].errors['required']"
             >
               Seleccionar archivo
             </div>
@@ -117,7 +140,7 @@
           <label
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             for="imagen_dos"
-            >Subir Icono</label
+            >Subir imagen 2</label
           >
           <input
             formControlName="imagen_dos"
@@ -128,12 +151,12 @@
             type="file"
           />
           <div
-            *ngIf="submitted && f['imagen_dos'].errors"
+            *ngIf="submitted && imagen_dos['imagen_dos'].errors"
             class="invalid-feedback"
           >
             <div
               class="text-red-500"
-              *ngIf="f['imagen_dos'].errors['required']"
+              *ngIf="imagen_dos['imagen_dos'].errors['required']"
             >
               Seleccionar archivo
             </div>

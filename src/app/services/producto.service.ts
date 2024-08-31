@@ -27,6 +27,10 @@ export class ProductoService {
     return this.http.get(this.urlListar);
   }
 
+  getProductoId(id: number) {
+    return this.http.get(this.urlListar + '/' + id);
+  }
+
   getCursos(): Observable<Producto> {
     return this.http.get(this.urlListarCursos);
   }

@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import {
+  FormGroup,
+  Validators,
+  FormBuilder,
+  FormControl,
+} from '@angular/forms';
 import { Testimonio } from 'src/app/models/testimonio.model';
 import { TestimonioService } from 'src/app/services/testimonio.service';
 import { CommonModule } from '@angular/common';
@@ -99,7 +104,27 @@ export class CreateTestimonioComponent {
     });
   }
 
-  get f() {
+  get titulo() {
+    return this.form.get('titulo') as FormControl;
+  }
+
+  get descripcion() {
+    return this.form.get('descripcion') as FormControl;
+  }
+
+  get image() {
+    return this.form.controls;
+  }
+
+  get banner() {
+    return this.form.controls;
+  }
+
+  get imagen_uno() {
+    return this.form.controls;
+  }
+
+  get imagen_dos() {
     return this.form.controls;
   }
 

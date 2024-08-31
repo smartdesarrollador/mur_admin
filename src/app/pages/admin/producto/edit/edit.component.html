@@ -27,6 +27,20 @@
           <label
             for="base-input"
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Cargo</label
+          >
+          <input
+            type="text"
+            id="cargo"
+            formControlName="cargo"
+            name="cargo"
+            class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          />
+        </div>
+        <div class="mb-5" form-group>
+          <label
+            for="base-input"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >Resumen del contenido</label
           >
           <input
@@ -106,7 +120,44 @@
             </div>
           </div>
         </div>
-
+        <div class="mb-5" form-group>
+          <div class="grid grid-cols-2">
+            <div>
+              <label
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                for="pdf"
+                >Pdf</label
+              >
+              <input
+                formControlName="pdf"
+                name="pdf"
+                id="pdf"
+                (change)="uploadImagePdf($event)"
+                class="form-control block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                type="file"
+              />
+              <div
+                *ngIf="submitted && f['pdf'].errors"
+                class="invalid-feedback"
+              >
+                <div class="text-red-500" *ngIf="f['pdf'].errors['required']">
+                  Seleccionar Pdf
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-center">
+                <a
+                  class="pt-10 text-blue-500 hover:underline"
+                  target="_blank"
+                  [href]="currentImageUrlPdf"
+                  *ngIf="currentImageUrlPdf"
+                  >Descargar Pdf</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
         <button
           type="submit"
           class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"

@@ -1,6 +1,11 @@
 /* 8.- CRUD-BASICO-V1-P2 */
 import { Component } from '@angular/core';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import {
+  FormGroup,
+  Validators,
+  FormBuilder,
+  FormControl,
+} from '@angular/forms';
 import { Producto } from 'src/app/models/producto.model';
 import { ProductoService } from 'src/app/services/producto.service';
 import { CommonModule } from '@angular/common';
@@ -30,6 +35,7 @@ import { QuillModule } from 'ngx-quill';
 export class CreateComponent {
   listCategories: any = [];
   files_date: any;
+  files_date_pdf: any;
   submitted = false;
   data: any;
   form: FormGroup = new FormGroup({});
@@ -89,16 +95,46 @@ export class CreateComponent {
   createForm() {
     this.form = this.formBuilder.group({
       nombre: [null, Validators.required],
+      cargo: [null, Validators.required],
       resumen: [null, Validators.required],
       descripcion: [null, Validators.required],
       correo: [null, Validators.required],
       telefono: [null, Validators.required],
       image: [null, Validators.required],
+      pdf: [null, Validators.required],
       /* categoria_producto_id: [null, Validators.required], */
     });
   }
 
-  get f() {
+  get nombre() {
+    return this.form.get('nombre') as FormControl;
+  }
+
+  get cargo() {
+    return this.form.get('cargo') as FormControl;
+  }
+
+  get resumen() {
+    return this.form.get('resumen') as FormControl;
+  }
+
+  get descripcion() {
+    return this.form.get('descripcion') as FormControl;
+  }
+
+  get correo() {
+    return this.form.get('correo') as FormControl;
+  }
+
+  get telefono() {
+    return this.form.get('telefono') as FormControl;
+  }
+
+  get image() {
+    return this.form.controls;
+  }
+
+  get pdf() {
     return this.form.controls;
   }
 
@@ -133,6 +169,37 @@ export class CreateComponent {
     }
   }
 
+  uploadImagePdf(event: Event) {
+    if (event.target instanceof HTMLInputElement) {
+      if (event.target.files && event.target.files.length > 0) {
+        const filesPdf = event.target.files[0];
+        this.files_date_pdf = filesPdf;
+        const maxSizeInBytes = 5 * 1024 * 1024; // 5MB
+
+        if (filesPdf.size > maxSizeInBytes) {
+          console.log('La imagen excede el tamaño máximo permitido (5MB)');
+          this.alertaMaxFilePdf();
+          // Puedes mostrar un mensaje de error o realizar otra acción
+          event.target.value = ''; // Limpiar el input file
+          return;
+        }
+
+        if (filesPdf.type !== 'application/pdf') {
+          console.log('Solo se permiten archivos PDF');
+          this.alertaExtFilePdf();
+          // Puedes mostrar un mensaje de error o realizar otra acción
+          event.target.value = ''; // Limpiar el input file
+          return;
+        }
+
+        // Aquí puedes continuar con el proceso de carga de la imagen
+        console.log('Archivo seleccionado:', filesPdf);
+      } else {
+        console.log('No se seleccionó ningún archivo');
+      }
+    }
+  }
+
   onSubmit() {
     this.submitted = true;
     if (this.form.invalid) {
@@ -141,11 +208,13 @@ export class CreateComponent {
 
     const formData = new FormData();
     formData.append('nombre', this.form.value.nombre);
+    formData.append('cargo', this.form.value.cargo);
     formData.append('resumen', this.form.value.resumen);
     formData.append('descripcion', this.form.value.descripcion);
     formData.append('correo', this.form.value.correo);
     formData.append('telefono', this.form.value.telefono);
     formData.append('imagen', this.files_date, this.files_date.name);
+    formData.append('pdf', this.files_date_pdf, this.files_date_pdf.name);
     formData.append('categoria_producto_id', this.categoriaProductoId);
     this.dataService.uploadData(formData).subscribe((res) => {
       this.data = res;
@@ -173,6 +242,20 @@ export class CreateComponent {
     Swal.fire({
       icon: 'error',
       title: 'Solo se permiten archivos JPG y PNG',
+    });
+  }
+
+  alertaMaxFilePdf() {
+    Swal.fire({
+      icon: 'error',
+      title: 'La imagen excede el tamaño máximo permitido (5MB)',
+    });
+  }
+
+  alertaExtFilePdf() {
+    Swal.fire({
+      icon: 'error',
+      title: 'Solo se permiten archivos Pdf',
     });
   }
 

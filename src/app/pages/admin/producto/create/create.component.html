@@ -22,6 +22,32 @@
             name="nombre"
             class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           />
+          <div
+            *ngIf="submitted && nombre.errors"
+            class="invalid-feedback text-red-500"
+          >
+            <div *ngIf="nombre.errors?.['required']">Nombre es requerido</div>
+          </div>
+        </div>
+        <div class="mb-5" form-group>
+          <label
+            for="base-input"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Cargo</label
+          >
+          <input
+            type="text"
+            id="cargo"
+            formControlName="cargo"
+            name="cargo"
+            class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          />
+          <div
+            *ngIf="submitted && cargo.errors"
+            class="invalid-feedback text-red-500"
+          >
+            <div *ngIf="cargo.errors?.['required']">Cargo es requerido</div>
+          </div>
         </div>
         <div class="mb-5" form-group>
           <label
@@ -36,6 +62,12 @@
             name="resumen"
             class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           />
+          <div
+            *ngIf="submitted && resumen.errors"
+            class="invalid-feedback text-red-500"
+          >
+            <div *ngIf="resumen.errors?.['required']">Resumen es requerido</div>
+          </div>
         </div>
         <div class="mb-5" form-group>
           <label
@@ -57,6 +89,14 @@
             [modules]="moduleQuill"
             (onEditorChanged)="onChangeEditor($event)"
           ></quill-editor>
+          <div
+            *ngIf="submitted && descripcion.errors"
+            class="invalid-feedback text-red-500"
+          >
+            <div *ngIf="descripcion.errors?.['required']">
+              Contenido es requerido
+            </div>
+          </div>
         </div>
         <div class="mb-5" form-group>
           <label
@@ -71,6 +111,12 @@
             name="correo"
             class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           />
+          <div
+            *ngIf="submitted && correo.errors"
+            class="invalid-feedback text-red-500"
+          >
+            <div *ngIf="correo.errors?.['required']">Correo es requerido</div>
+          </div>
         </div>
         <div class="mb-5" form-group>
           <label
@@ -85,6 +131,14 @@
             name="telefono"
             class="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           />
+          <div
+            *ngIf="submitted && telefono.errors"
+            class="invalid-feedback text-red-500"
+          >
+            <div *ngIf="telefono.errors?.['required']">
+              Celular es requerido
+            </div>
+          </div>
         </div>
         <div class="mb-5" form-group>
           <label
@@ -100,9 +154,35 @@
             class="form-control block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
             type="file"
           />
-          <div *ngIf="submitted && f['image'].errors" class="invalid-feedback">
-            <div class="text-red-500" *ngIf="f['image'].errors['required']">
+          <div
+            *ngIf="submitted && image['image'].errors"
+            class="invalid-feedback"
+          >
+            <div class="text-red-500" *ngIf="image['image'].errors['required']">
               Seleccionar archivo
+            </div>
+          </div>
+        </div>
+        <div class="mb-5" form-group>
+          <label
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            for="pdf"
+            >Subir Pdf</label
+          >
+          <input
+            formControlName="pdf"
+            name="pdf"
+            id="pdf"
+            (change)="uploadImagePdf($event)"
+            class="form-control block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+            type="file"
+          />
+          <div
+            *ngIf="submitted && pdf['image'].errors"
+            class="invalid-feedback"
+          >
+            <div class="text-red-500" *ngIf="pdf['image'].errors['required']">
+              Seleccionar pdf
             </div>
           </div>
         </div>
