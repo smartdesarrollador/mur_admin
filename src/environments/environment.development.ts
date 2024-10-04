@@ -54,4 +54,34 @@ export const environment = {
   apiUpdateFileInformativo: 'http://127.0.0.1:8000/api/informativos/update',
   apiListarFilesInformativo: 'http://127.0.0.1:8000/api/informativos',
   apiDeleteFileInformativo: 'http://127.0.0.1:8000/api/informativos',
+  apiUpdateBannerArea: 'http://127.0.0.1:8000/api/banner/area/update',
+  apiListarBannerArea: 'http://127.0.0.1:8000/api/banner/area',
+  apiDeleteBannerArea: 'http://127.0.0.1:8000/api/banner/area',
+  apiUpdateBannerEquipo: 'http://127.0.0.1:8000/api/banner/equipo/update',
+  apiListarBannerEquipo: 'http://127.0.0.1:8000/api/banner/equipo',
+  apiDeleteBannerEquipo: 'http://127.0.0.1:8000/api/banner/equipo',
+  apiUpdateBannerFirma: 'http://127.0.0.1:8000/api/banner/firma/update',
+  apiListarBannerFirma: 'http://127.0.0.1:8000/api/banner/firma',
+  apiDeleteBannerFirma: 'http://127.0.0.1:8000/api/banner/firma',
+  apiUpdateBannerPublicacion:
+    'http://127.0.0.1:8000/api/banner/publicacion/update',
+  apiListarBannerPublicacion: 'http://127.0.0.1:8000/api/banner/publicacion',
+  apiDeleteBannerPublicacion: 'http://127.0.0.1:8000/api/banner/publicacion',
+  apiUrl3SliderComentario: 'http://127.0.0.1:8000/api/slider/comentario/subir',
+  apiUpdateFileSliderComentario:
+    'http://127.0.0.1:8000/api/slider/comentario/update',
+  apiListarFilesSliderComentario: 'http://127.0.0.1:8000/api/slider/comentario',
+  apiDeleteFileSliderComentario: 'http://127.0.0.1:8000/api/slider/comentario',
+  apiUrl3SliderMiembro: 'http://127.0.0.1:8000/api/slider/miembro/subir',
+  apiUpdateFileSliderMiembro: 'http://127.0.0.1:8000/api/slider/miembro/update',
+  apiListarFilesSliderMiembro: 'http://127.0.0.1:8000/api/slider/miembro',
+  apiDeleteFileSliderMiembro: 'http://127.0.0.1:8000/api/slider/miembro',
+  apiUrl3SliderReconocimiento:
+    'http://127.0.0.1:8000/api/slider/reconocimiento/subir',
+  apiUpdateFileSliderReconocimiento:
+    'http://127.0.0.1:8000/api/slider/reconocimiento/update',
+  apiListarFilesSliderReconocimiento:
+    'http://127.0.0.1:8000/api/slider/reconocimiento',
+  apiDeleteFileSliderReconocimiento:
+    'http://127.0.0.1:8000/api/slider/reconocimiento',
 };

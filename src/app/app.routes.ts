@@ -51,6 +51,25 @@ import { EditSalaDePrensaComponent } from './pages/admin/publicacion/sala-de-pre
 import { InformativoComponent } from './pages/admin/publicacion/informativo/informativo.component';
 import { CreateInformativoComponent } from './pages/admin/publicacion/informativo/create-informativo/create-informativo.component';
 import { EditInformativoComponent } from './pages/admin/publicacion/informativo/edit-informativo/edit-informativo.component';
+import { BannerAreaComponent } from './pages/admin/banner-area/banner-area.component';
+import { EditBannerAreaComponent } from './pages/admin/banner-area/edit-banner-area/edit-banner-area.component';
+import { BannerPublicacionComponent } from './pages/admin/banner-publicacion/banner-publicacion.component';
+import { EditBannerPublicacionComponent } from './pages/admin/banner-publicacion/edit-banner-publicacion/edit-banner-publicacion.component';
+import { BannerEquipoComponent } from './pages/admin/banner-equipo/banner-equipo.component';
+import { EditBannerEquipoComponent } from './pages/admin/banner-equipo/edit-banner-equipo/edit-banner-equipo.component';
+import { BannerFirma } from './models/banner_firma.model';
+import { EditBannerFirmaComponent } from './pages/admin/banner-firma/edit-banner-firma/edit-banner-firma.component';
+import { BannerFirmaComponent } from './pages/admin/banner-firma/banner-firma.component';
+import { SliderComentarioComponent } from './pages/admin/slider-comentario/slider-comentario.component';
+import { EditSliderComentarioComponent } from './pages/admin/slider-comentario/edit-slider-comentario/edit-slider-comentario.component';
+import { CreateSliderComentarioComponent } from './pages/admin/slider-comentario/create-slider-comentario/create-slider-comentario.component';
+import { CreateSliderReconocimientoComponent } from './pages/admin/slider-reconocimiento/create-slider-reconocimiento/create-slider-reconocimiento.component';
+import { EditSliderReconocimientoComponent } from './pages/admin/slider-reconocimiento/edit-slider-reconocimiento/edit-slider-reconocimiento.component';
+import { EditSliderMiembroComponent } from './pages/admin/slider-miembro/edit-slider-miembro/edit-slider-miembro.component';
+import { SliderMiembroComponent } from './pages/admin/slider-miembro/slider-miembro.component';
+import { CreateSliderMiembroComponent } from './pages/admin/slider-miembro/create-slider-miembro/create-slider-miembro.component';
+import { SliderReconocimiento } from './models/slider_reconocimiento.model';
+import { SliderReconocimientoComponent } from './pages/admin/slider-reconocimiento/slider-reconocimiento.component';
 
 export const routes: Routes = [
   {
@@ -223,6 +242,91 @@ export const routes: Routes = [
         path: 'publicaciones/informativo/edit',
         canActivate: [AuthGuard],
         component: EditInformativoComponent,
+      },
+      {
+        path: 'banner/area',
+        canActivate: [AuthGuard],
+        component: BannerAreaComponent,
+      },
+      {
+        path: 'banner/area/edit',
+        canActivate: [AuthGuard],
+        component: EditBannerAreaComponent,
+      },
+      {
+        path: 'banner/publicacion',
+        canActivate: [AuthGuard],
+        component: BannerPublicacionComponent,
+      },
+      {
+        path: 'banner/publicacion/edit',
+        canActivate: [AuthGuard],
+        component: EditBannerPublicacionComponent,
+      },
+      {
+        path: 'banner/equipo',
+        canActivate: [AuthGuard],
+        component: BannerEquipoComponent,
+      },
+      {
+        path: 'banner/equipo/edit',
+        canActivate: [AuthGuard],
+        component: EditBannerEquipoComponent,
+      },
+      {
+        path: 'banner/firma',
+        canActivate: [AuthGuard],
+        component: BannerFirmaComponent,
+      },
+      {
+        path: 'banner/firma/edit',
+        canActivate: [AuthGuard],
+        component: EditBannerFirmaComponent,
+      },
+      {
+        path: 'slider/comentario',
+        canActivate: [AuthGuard],
+        component: SliderComentarioComponent,
+      },
+      {
+        path: 'slider/comentario/edit',
+        canActivate: [AuthGuard],
+        component: EditSliderComentarioComponent,
+      },
+      {
+        path: 'slider/comentario/create',
+        canActivate: [AuthGuard],
+        component: CreateSliderComentarioComponent,
+      },
+      {
+        path: 'slider/reconocimiento',
+        canActivate: [AuthGuard],
+        component: SliderReconocimientoComponent,
+      },
+      {
+        path: 'slider/reconocimiento/edit',
+        canActivate: [AuthGuard],
+        component: EditSliderReconocimientoComponent,
+      },
+      {
+        path: 'slider/reconocimiento/create',
+        canActivate: [AuthGuard],
+        component: CreateSliderReconocimientoComponent,
+      },
+      {
+        path: 'slider/miembro',
+        canActivate: [AuthGuard],
+        component: SliderMiembroComponent,
+      },
+      {
+        path: 'slider/miembro/edit',
+        canActivate: [AuthGuard],
+        component: EditSliderMiembroComponent,
+      },
+      {
+        path: 'slider/miembro/create',
+        canActivate: [AuthGuard],
+        component: CreateSliderMiembroComponent,
       },
     ],
   },

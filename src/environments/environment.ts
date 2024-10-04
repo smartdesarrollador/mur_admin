@@ -104,4 +104,40 @@ export const environment = {
     'https://api.hawatech.agency/api/informativos/update',
   apiListarFilesInformativo: 'https://api.hawatech.agency/api/informativos',
   apiDeleteFileInformativo: 'https://api.hawatech.agency/api/informativos',
+  apiUpdateBannerArea: 'https://api.hawatech.agency/api/banner/area/update',
+  apiListarBannerArea: 'https://api.hawatech.agency/api/banner/area',
+  apiDeleteBannerArea: 'https://api.hawatech.agency/api/banner/area',
+  apiUpdateBannerEquipo: 'https://api.hawatech.agency/api/banner/equipo/update',
+  apiListarBannerEquipo: 'https://api.hawatech.agency/api/banner/equipo',
+  apiDeleteBannerEquipo: 'https://api.hawatech.agency/api/banner/equipo',
+  apiUpdateBannerFirma: 'https://api.hawatech.agency/api/banner/firma/update',
+  apiListarBannerFirma: 'https://api.hawatech.agency/api/banner/firma',
+  apiDeleteBannerFirma: 'https://api.hawatech.agency/api/banner/firma',
+  apiUpdateBannerPublicacion:
+    'https://api.hawatech.agency/api/banner/publicacion/update',
+  apiListarBannerPublicacion:
+    'https://api.hawatech.agency/api/banner/publicacion',
+  apiDeleteBannerPublicacion:
+    'https://api.hawatech.agency/api/banner/publicacion',
+  apiUrl3SliderComentario:
+    'https://api.hawatech.agency/api/slider/comentario/subir',
+  apiUpdateFileSliderComentario:
+    'https://api.hawatech.agency/api/slider/comentario/update',
+  apiListarFilesSliderComentario:
+    'https://api.hawatech.agency/api/slider/comentario',
+  apiDeleteFileSliderComentario:
+    'https://api.hawatech.agency/api/slider/comentario',
+  apiUrl3SliderMiembro: 'https://api.hawatech.agency/api/slider/miembro/subir',
+  apiUpdateFileSliderMiembro:
+    'https://api.hawatech.agency/api/slider/miembro/update',
+  apiListarFilesSliderMiembro: 'https://api.hawatech.agency/api/slider/miembro',
+  apiDeleteFileSliderMiembro: 'https://api.hawatech.agency/api/slider/miembro',
+  apiUrl3SliderReconocimiento:
+    'https://api.hawatech.agency/api/slider/reconocimiento/subir',
+  apiUpdateFileSliderReconocimiento:
+    'https://api.hawatech.agency/api/slider/reconocimiento/update',
+  apiListarFilesSliderReconocimiento:
+    'https://api.hawatech.agency/api/slider/reconocimiento',
+  apiDeleteFileSliderReconocimiento:
+    'https://api.hawatech.agency/api/slider/reconocimiento',
 };
