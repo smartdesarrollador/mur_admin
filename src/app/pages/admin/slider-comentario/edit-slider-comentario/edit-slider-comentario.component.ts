@@ -159,7 +159,7 @@ export class EditSliderComentarioComponent {
     } */
 
     const formData = new FormData();
-    formData.append('id_testimonio', this.valor_id_slider_comentario);
+    formData.append('id_slider_comentario', this.valor_id_slider_comentario);
     formData.append('titulo', this.form.value.titulo);
     formData.append('descripcion', this.form.value.descripcion);
 

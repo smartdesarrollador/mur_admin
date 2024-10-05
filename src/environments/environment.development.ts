@@ -67,15 +67,18 @@ export const environment = {
     'http://127.0.0.1:8000/api/banner/publicacion/update',
   apiListarBannerPublicacion: 'http://127.0.0.1:8000/api/banner/publicacion',
   apiDeleteBannerPublicacion: 'http://127.0.0.1:8000/api/banner/publicacion',
+
   apiUrl3SliderComentario: 'http://127.0.0.1:8000/api/slider/comentario/subir',
   apiUpdateFileSliderComentario:
     'http://127.0.0.1:8000/api/slider/comentario/update',
   apiListarFilesSliderComentario: 'http://127.0.0.1:8000/api/slider/comentario',
   apiDeleteFileSliderComentario: 'http://127.0.0.1:8000/api/slider/comentario',
+
   apiUrl3SliderMiembro: 'http://127.0.0.1:8000/api/slider/miembro/subir',
   apiUpdateFileSliderMiembro: 'http://127.0.0.1:8000/api/slider/miembro/update',
   apiListarFilesSliderMiembro: 'http://127.0.0.1:8000/api/slider/miembro',
   apiDeleteFileSliderMiembro: 'http://127.0.0.1:8000/api/slider/miembro',
+
   apiUrl3SliderReconocimiento:
     'http://127.0.0.1:8000/api/slider/reconocimiento/subir',
   apiUpdateFileSliderReconocimiento:

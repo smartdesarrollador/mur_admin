@@ -109,10 +109,10 @@ export class EditSliderMiembroComponent {
   createForm() {
     this.form = this.formBuilder.group({
       titulo: [this.dataService.selectCategory.titulo, Validators.required],
-      descripcion: [
+      /* descripcion: [
         this.dataService.selectCategory.descripcion,
         Validators.required,
-      ],
+      ], */
       image: [null],
     });
   }
@@ -161,7 +161,7 @@ export class EditSliderMiembroComponent {
     const formData = new FormData();
     formData.append('id_slider_miembro', this.valor_id_slider_miembro);
     formData.append('titulo', this.form.value.titulo);
-    formData.append('descripcion', this.form.value.descripcion);
+    /* formData.append('descripcion', this.form.value.descripcion); */
 
     if (this.files_date) {
       formData.append('imagen', this.files_date, this.files_date.name);

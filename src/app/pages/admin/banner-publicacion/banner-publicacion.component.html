@@ -6,15 +6,15 @@
   </header>
 
   <div
-    class="flex justify-center shadow overflow-hidden border-b border-gray-200 sm:rounded-lg"
+    class="flex justify-center shadow overflow-x-auto border-b border-gray-200 sm:rounded-lg"
   >
-    <table class="bg-slate-50 w-full divide-y divide-gray-200 table-auto">
+    <table class="bg-slate-50 divide-y divide-gray-200 table-auto max-w-5xl">
       <thead class="bg-blue-500 text-white">
         <tr class="text-left text-xs font-bold uppercase">
-          <td scope="col" class="px-6 py-3">Nombre</td>
-          <td scope="col" class="px-6 py-3">Url</td>
+          <!-- <td scope="col" class="px-6 py-3">Nombre</td> -->
+          <td scope="col" class="px-6 py-3">Imagen</td>
           <td scope="col" class="px-6 py-3">Editar</td>
-          <td scope="col" class="px-6 py-3">Eliminar</td>
+          <!-- <td scope="col" class="px-6 py-3">Eliminar</td> -->
         </tr>
       </thead>
       <tbody class="divide-y divide-gray-200">
@@ -22,7 +22,7 @@
           *ngFor="let item of listCategories"
           class="text-sm font-medium text-gray-900"
         >
-          <td class="px-6 py-4">{{ item.imagen }}</td>
+          <!-- <td class="px-6 py-4">{{ item.imagen }}</td> -->
           <td class="px-6 py-4">
             <img
               class="max-w-sm"
@@ -38,14 +38,14 @@
               <i class="fas fa-edit"></i>
             </button>
           </td>
-          <td>
+          <!--  <td>
             <button
               (click)="onDelete(item.id_banner_publicacion)"
               class="inline-flex items-center justify-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 focus:outline-none focus:border-red-700 focus:ring focus:ring-red-200 active:bg-red-600 disabled:opacity-25 transition"
             >
               <i class="fas fa-trash"></i>
             </button>
-          </td>
+          </td> -->
         </tr>
       </tbody>
     </table>
