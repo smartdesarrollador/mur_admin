@@ -144,7 +144,7 @@ export const routes: Routes = [
         component: UpdateFileMisionComponent,
       },
       {
-        path: 'mision/update',
+        path: 'mision/update/:id',
         canActivate: [AuthGuard],
         component: UpdateMisionComponent,
       },

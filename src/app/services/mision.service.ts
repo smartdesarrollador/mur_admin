@@ -24,8 +24,12 @@ export class MisionService {
     return this.http.get(this.url);
   }
 
-  updateCategory(id: number, category: Mision) {
-    return this.http.put(this.urlUpdate + '/1', category, {
+  getMisionById(id: number): Observable<Mision> {
+    return this.http.get<Mision>(`${this.url}/${id}`);
+  }
+
+  updateCategory(id: number, category: Mision): Observable<any> {
+    return this.http.put(`${this.urlUpdate}/${id}`, category, {
       headers: this.reqHeader,
     });
   }

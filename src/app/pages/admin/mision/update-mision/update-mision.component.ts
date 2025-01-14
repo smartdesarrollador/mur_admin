@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { Router, RouterLink, ActivatedRoute } from '@angular/router';
 import { MisionService } from 'src/app/services/mision.service';
 import { Mision } from 'src/app/models/mision';
 import { CommonModule } from '@angular/common';
@@ -21,10 +21,25 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   styleUrl: './update-mision.component.css',
 })
 export class UpdateMisionComponent {
-  id_mision: number = 1;
-  constructor(public categoryService: MisionService, private router: Router) {}
+  id_mision: number = 0;
 
-  ngOnInit(): void {}
+  constructor(
+    public categoryService: MisionService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
+
+  ngOnInit(): void {
+    this.route.params.subscribe((params) => {
+      this.id_mision = +params['id'];
+
+      this.categoryService
+        .getMisionById(this.id_mision)
+        .subscribe((data: Mision) => {
+          this.categoryService.selectCategory = data;
+        });
+    });
+  }
 
   submitForm(categoryForm: NgForm) {
     this.categoryService

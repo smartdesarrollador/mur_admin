@@ -34,12 +34,12 @@ export class MisionComponent {
   onUpdate(category: Mision) {
     console.log(category);
     this.cs.selectCategory = Object.assign({}, category);
-    this.router.navigate(['/admin/mision/update']);
+    this.router.navigate(['/admin/mision/update', category.id_mision]);
   }
 
-  onEdit(category: Mision) {
+  /* onEdit(category: Mision) {
     console.log(category);
     this.cs.selectCategory = Object.assign({}, category);
     this.router.navigate(['/admin/mision/update/file']);
-  }
+  } */
 }
