@@ -102,6 +102,7 @@ export class EditSliderComponent {
   createForm() {
     this.form = this.formBuilder.group({
       titulo: [this.dataService.selectCategory.titulo, Validators.required],
+      cargo: [this.dataService.selectCategory.cargo, Validators.required],
       descripcion: [
         this.dataService.selectCategory.descripcion,
         Validators.required,
@@ -154,6 +155,7 @@ export class EditSliderComponent {
     const formData = new FormData();
     formData.append('id_slider', this.valor_id_slider);
     formData.append('titulo', this.form.value.titulo);
+    formData.append('cargo', this.form.value.cargo);
     formData.append('descripcion', this.form.value.descripcion);
 
     if (this.files_date) {

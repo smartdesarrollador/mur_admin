@@ -88,6 +88,7 @@ export class CreateSliderComponent {
   createForm() {
     this.form = this.formBuilder.group({
       titulo: [null, Validators.required],
+      cargo: [null, Validators.required],
       descripcion: [null, Validators.required],
       image: [null, Validators.required],
     });
@@ -136,6 +137,7 @@ export class CreateSliderComponent {
 
     const formData = new FormData();
     formData.append('titulo', this.form.value.titulo);
+    formData.append('cargo', this.form.value.cargo);
     formData.append('descripcion', this.form.value.descripcion);
     formData.append('imagen', this.files_date, this.files_date.name);
     this.dataService.uploadData(formData).subscribe((res) => {
