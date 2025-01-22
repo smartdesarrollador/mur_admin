@@ -87,4 +87,9 @@ export const environment = {
     'http://127.0.0.1:8000/api/slider/reconocimiento',
   apiDeleteFileSliderReconocimiento:
     'http://127.0.0.1:8000/api/slider/reconocimiento',
+
+  apiUrl3Industrias: 'http://127.0.0.1:8000/api/industrias/subir',
+  apiUpdateFileIndustrias: 'http://127.0.0.1:8000/api/industrias/update',
+  apiListarFilesIndustrias: 'http://127.0.0.1:8000/api/industrias',
+  apiDeleteFileIndustrias: 'http://127.0.0.1:8000/api/industrias',
 };

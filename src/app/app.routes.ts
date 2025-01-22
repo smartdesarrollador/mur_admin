@@ -70,6 +70,9 @@ import { SliderMiembroComponent } from './pages/admin/slider-miembro/slider-miem
 import { CreateSliderMiembroComponent } from './pages/admin/slider-miembro/create-slider-miembro/create-slider-miembro.component';
 import { SliderReconocimiento } from './models/slider_reconocimiento.model';
 import { SliderReconocimientoComponent } from './pages/admin/slider-reconocimiento/slider-reconocimiento.component';
+import { IndustriaComponent } from './pages/admin/industria/industria.component';
+import { CreateIndustriaComponent } from './pages/admin/industria/create-industria/create-industria.component';
+import { EditIndustriaComponent } from './pages/admin/industria/edit-industria/edit-industria.component';
 
 export const routes: Routes = [
   {
@@ -327,6 +330,21 @@ export const routes: Routes = [
         path: 'slider/miembro/create',
         canActivate: [AuthGuard],
         component: CreateSliderMiembroComponent,
+      },
+      {
+        path: 'industria',
+        canActivate: [AuthGuard],
+        component: IndustriaComponent,
+      },
+      {
+        path: 'industria/create',
+        canActivate: [AuthGuard],
+        component: CreateIndustriaComponent,
+      },
+      {
+        path: 'industria/edit',
+        canActivate: [AuthGuard],
+        component: EditIndustriaComponent,
       },
     ],
   },

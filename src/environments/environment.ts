@@ -140,4 +140,9 @@ export const environment = {
     'https://api.hawatech.agency/api/slider/reconocimiento',
   apiDeleteFileSliderReconocimiento:
     'https://api.hawatech.agency/api/slider/reconocimiento',
+
+  apiUrl3Industrias: 'https://api.hawatech.agency/api/industrias/subir',
+  apiUpdateFileIndustrias: 'https://api.hawatech.agency/api/industrias/update',
+  apiListarFilesIndustrias: 'https://api.hawatech.agency/api/industrias',
+  apiDeleteFileIndustrias: 'https://api.hawatech.agency/api/industrias',
 };
